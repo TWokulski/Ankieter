@@ -17,7 +17,7 @@ public class AnkieterApplication {
 
 @RestController
 class HelloTest {
-	@GetMapping("/")
+	@GetMapping("/api")
 	String test() {
 		return "Hello World!";
 	}
