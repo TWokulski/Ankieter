@@ -57,7 +57,7 @@
 <script>
   (function() {
     //const API_URL = 'http://localhost:8080/api';
-    const TEST_API_URL = 'http://localhost:8080/test';
+    const TEST_API_URL = 'https://ankieter-eti-addiction.herokuapp.com/test';
 
     var e = document.getElementById('q1');
     const q1Answer = e.options[e.selectedIndex].text;
@@ -85,7 +85,7 @@
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ 1: q1Answer.value, 2: q2Answer.value, 3: q3Answer.value, 4: q4Answer.value })
+        body: JSON.stringify({ a1: q1Answer.value, a2: q2Answer.value, a3: q3Answer.value, a4: q4Answer.value })
       })
         .then(processOkResponse)
         .catch(console.warn);
