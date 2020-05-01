@@ -2,6 +2,7 @@ package Gruzdzis.Wicki.ankieter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,10 +16,10 @@ public class AnkieterApplication {
 }
 
 
-@RestController
+@Controller
 class HelloTest {
-	@GetMapping("/api")
+	@GetMapping("/leaf")
 	String test() {
-		return "Hello World!";
+		return "leaf";
 	}
 }
