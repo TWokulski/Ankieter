@@ -15,7 +15,7 @@ public class Test {
     @GeneratedValue(generator="inc")
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
-    private String a1;
+    private boolean a1;
     private String a2;
     private String a3;
     private String a4;
@@ -23,7 +23,7 @@ public class Test {
     public Test() {
     }
 
-    public Test(Long id, String a1, String a2, String a3, String a4) {
+    public Test(Long id, boolean a1, String a2, String a3, String a4) {
         this.id = id;
         this.a1 = a1;
         this.a2 = a2;
@@ -31,11 +31,11 @@ public class Test {
         this.a4 = a4;
     }
 
-    public String getA1() {
+    public boolean getA1() {
         return a1;
     }
 
-    public void setA1(String a1) {
+    public void setA1(boolean a1) {
         this.a1 = a1;
     }
 
