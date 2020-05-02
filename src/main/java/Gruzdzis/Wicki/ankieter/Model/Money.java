@@ -3,8 +3,7 @@ package Gruzdzis.Wicki.ankieter.Model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table( name = "Spending" )
+
 public class Money {
 
     private Integer game_ID;

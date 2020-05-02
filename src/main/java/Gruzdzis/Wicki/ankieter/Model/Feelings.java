@@ -4,8 +4,7 @@ package Gruzdzis.Wicki.ankieter.Model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table( name = "Feeling_Health" )
+
 public class Feelings {
 
     private Integer game_ID;

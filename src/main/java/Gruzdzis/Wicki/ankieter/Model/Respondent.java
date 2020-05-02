@@ -3,8 +3,7 @@ package Gruzdzis.Wicki.ankieter.Model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table( name = "Respondent" )
+
 public class Respondent {
 
     private Long id;
