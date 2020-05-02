@@ -3,12 +3,15 @@ package Gruzdzis.Wicki.ankieter.Api;
 import Gruzdzis.Wicki.ankieter.Model.Test;
 import Gruzdzis.Wicki.ankieter.Repository.TestRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
-@RestController
-@RequestMapping("/test")
+@Controller
 public class TestApi {
 
     private TestRepository repository;
@@ -17,14 +20,20 @@ public class TestApi {
         this.repository = repository;
     }
 
-    @PostMapping
-    ResponseEntity<Test> saveTest(@RequestBody Test test)
-    {
-        return ResponseEntity.ok(repository.save(test));
+    @GetMapping("/leaf")
+    String test() {
+        return "leaf";
     }
 
-    @GetMapping
-    ResponseEntity<List<Test>> showTests(){
-        return ResponseEntity.ok(repository.findAll());
+    @PostMapping("/lfs")
+    String addTest(@Valid Test test, BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
+            return "leaf";
+        }
+
+        repository.save(test);
+        //model.addAttribute("tests", repository.findAll());
+        return "leaf";
     }
 }
