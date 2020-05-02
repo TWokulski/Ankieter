@@ -14,24 +14,24 @@
         <form class="questionForm" id="q1" data-question="1" th:action="@{/lfs}" th:object="${test}" method="post">
             <h3>1.Płeć.</h3>
             <ul>
-                <li><input name="q1" type="radio" value="a" th:field="*{a1}" th:value="${Kobieta}" />Kobieta</li>
+                <li><input name="q1" type="radio" value="a" th:field="*{a1}" th:value="${Kobieta}" checked="checked" />Kobieta</li>
                 <li><input name="q1" type="radio" value="b" th:field="*{a1}" th:value="${Mezczyzna}" />Mężczyzna</li>
             </ul>
             <h3>2.Status. </h3>
             <ul>
-                <li><input name="q2" type="radio" value="a" th:field="*{a2}" th:value="${Wolny}" />Wolny/Wolna</li>
+                <li><input name="q2" type="radio" value="a" th:field="*{a2}" th:value="${Wolny}" checked="checked" />Wolny/Wolna</li>
                 <li><input name="q2" type="radio" value="b" th:field="*{a2}" th:value="${zwiazku}" />W związku</li>
             </ul>
             <h3>3.Mieszkasz z..</h3>
             <ul>
-                <li><input name="q3" type="radio" value="a" th:field="*{a3}" th:value="${sam}" />Sam/a</li>
+                <li><input name="q3" type="radio" value="a" th:field="*{a3}" th:value="${sam}" checked="checked" />Sam/a</li>
                 <li><input name="q3" type="radio" value="b" th:field="*{a3}" th:value="${rodzicami}" />Z rodzicami</li>
                 <li><input name="q3" type="radio" value="c" th:field="*{a3}" th:value="${lokatorem}" />Z lokatorem/lokatorką</li>
                 <li><input name="q3" type="radio" value="d" th:field="*{a3}" th:value="${partnerem}" />Z partnerem/partnerką</li>
             </ul>
             <h3>4.Stopień studiów.</h3>
             <ul>
-                <li><input name="q4" type="radio" value="a" th:field="*{a4}" th:value="${Pierwszy}" />Pierwszy</li>
+                <li><input name="q4" type="radio" value="a" th:field="*{a4}" th:value="${Pierwszy}" checked="checked" />Pierwszy</li>
                 <li><input name="q4" type="radio" value="b" th:field="*{a4}" th:value="${Drugi}" />Drugi</li>
             </ul>
             <button id="submitALL">Wszystko</button>
