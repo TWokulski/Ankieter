@@ -21,12 +21,13 @@ public class TestApi {
     }
 
     @GetMapping("/leaf")
-    String test() {
+    String test(Model model) {
+        model.addAttribute("test", new Test());
         return "leaf";
     }
 
     @PostMapping("/lfs")
-    String addTest(@Valid Test test, BindingResult result, Model model) {
+    String addTest(@ModelAttribute Test test) {
         repository.save(test);
         return "redirect:/leaf";
     }
