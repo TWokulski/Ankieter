@@ -27,13 +27,7 @@ public class TestApi {
 
     @PostMapping("/lfs")
     String addTest(@Valid Test test, BindingResult result, Model model) {
-
-        if (result.hasErrors()) {
-            return "leaf";
-        }
-
         repository.save(test);
-        //model.addAttribute("tests", repository.findAll());
-        return "leaf";
+        return "redirect:/leaf";
     }
 }
