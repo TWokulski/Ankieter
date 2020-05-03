@@ -34,10 +34,10 @@ public class QA_Api {
         this.socialRepository = socialRepository;
     }
 
-    @GetMapping("/respondent")
+    @GetMapping("/respondent_q")
     String respondent_Q(Model model) {
         model.addAttribute("respondent", new Respondent());
-        return "RespondentQ";
+        return "respondent_q";
     }
 
     @PostMapping("/add_respondent")
@@ -77,7 +77,7 @@ public class QA_Api {
         if(respondent.isPlaying_games())
             return "redirect:/game_q";
         else
-            return "redirect:/AddictionQ";
+            return "redirect:/addiction_q";
 
     }
 
@@ -94,70 +94,70 @@ public class QA_Api {
 
         if(game.isSpending())
 
-            return "redirect:/MoneyQ";
+            return "redirect:/money_q";
         else
-            return "redirect:/FeelingsQ";
+            return "redirect:/feelings_q";
 
     }
 
-    @GetMapping("/money")
+    @GetMapping("/money_q")
     String money_Q(Model model) {
         model.addAttribute("money", new Money());
-        return "MoneyQ";
+        return "money_q";
     }
 
     @PostMapping("/add_money")
     String addMoney(@ModelAttribute Money money) {
         moneyRepository.save(money);
-        return "redirect:/FeelingsQ";
+        return "redirect:/feelings_q";
     }
 
-    @GetMapping("/addiction")
+    @GetMapping("/addiction_q")
     String addiction_Q(Model model) {
         model.addAttribute("addiction", new Addiction());
-        return "AddictionQ";
+        return "addiction_q";
     }
 
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
         addictionRepository.save(addiction);
-        return "redirect:/DegreesQ";
+        return "redirect:/degrees_q";
     }
 
-    @GetMapping("/degrees")
+    @GetMapping("/degrees_q")
     String degrees_Q(Model model) {
         model.addAttribute("degrees", new Degrees());
-        return "DegreesQ";
+        return "degrees_q";
     }
 
     @PostMapping("/add_degrees")
     String addDegrees(@ModelAttribute Degrees degrees) {
         degreesRepository.save(degrees);
-        return "redirect:/SocialQ";
+        return "redirect:/social_q";
     }
 
-    @GetMapping("/feelings")
+    @GetMapping("/feelings_q")
     String feelings_Q(Model model) {
         model.addAttribute("feelings", new Feelings());
-        return "FeelingsQ";
+        return "feelings_q";
     }
 
     @PostMapping("/add_feelings")
     String addFeelings(@ModelAttribute Feelings feelings) {
         feelingsRepository.save(feelings);
-        return "redirect:/AddictionQ";
+        return "redirect:/addiction_q";
     }
 
-    @GetMapping("/social")
+    @GetMapping("/social_q")
     String social_Q(Model model) {
         model.addAttribute("social_life", new Social_life());
-        return "SocialQ";
+        return "social_q";
     }
 
     @PostMapping("/add_social")
     String addSocial(@ModelAttribute Social_life social_life) {
         socialRepository.save(social_life);
-        return "redirect:/RespondentQ";
+        return "redirect:/respondent_q";
     }
 
 
