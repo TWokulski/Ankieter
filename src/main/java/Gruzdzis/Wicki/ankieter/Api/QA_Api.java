@@ -81,7 +81,7 @@ public class QA_Api {
 
     }
 
-    @GetMapping("/respondent/game")
+    @GetMapping("/game_q")
     String game_Q(Model model) {
         model.addAttribute("game", new Game());
         return "game_q";
