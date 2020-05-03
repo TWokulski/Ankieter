@@ -34,7 +34,7 @@ public class QA_Api {
         this.socialRepository = socialRepository;
     }
 
-    @GetMapping("/respondent_q")
+    @GetMapping({"/", "/respondent_q"})
     String respondent_Q(Model model) {
         model.addAttribute("respondent", new Respondent());
         return "respondent_q";
