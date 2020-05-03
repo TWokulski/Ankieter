@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<title>Ankieta</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+	<header>
+		<h3>Ocena uzależnienia od gier komputerowych wśród studentów ETI </h3>
+	</header>
+	<div class="container">
+		
+		<main>
+				<form class="questionForm" id="q15" data-question="15" th:action="@{/add_addiction}" th:object="${addiction}" method="post">
+					<h3>15.Czy uważasz, że gry komputerowe moga uzależniać ?</h3>
+					<ul>
+						<li><input name="q15" type="radio" value="1" th:field="*{awareness_of_addiction}" checked="checked" />Tak</li>
+						<li><input name="q15" type="radio" value="0" th:field="*{awareness_of_addiction}" />Nie</li>
+					</ul>
+					<h3>16.Co uważasz jako określenie uzależneinia od gier komputerowych?</h3>
+					<ul>
+						<li><input name="q16" type="radio" value="Wlaczanie komputera odrazu po przebudzeniu" th:field="*{what_is_game_addiction}" checked="checked" />Włączanie komputera odrazu po przebudzeniu w celu gry.</li>
+						<li><input name="q16" type="radio" value="Brak zainteresowania otaczajacym swiatem rzeczywistym" th:field="*{what_is_game_addiction}"/>Brak zainteresowania otaczającym światem rzeczywistym</li>
+						<li><input name="q16" type="radio" value="potrzeby dostepu do komputera" th:field="*{what_is_game_addiction}"/>Lompulsywne, odczuwnie silnej i nieprzerwanej potrzeby dostępu do komputera oraz Internetu</li>
+						<li><input name="q16" type="radio" value="Odczuwanie niepokoju w chwili braku dostepu do komputera" th:field="*{what_is_game_addiction}"/>Odczuwanie niepokoju w chwili braku dostępu do komputera.</li>
+					</ul>
+					<h3>30.Czy uważasz, że granie w gry jest równoznaczne z utratą czasu?</h3>
+					<ul>
+						<li><input name="q30" type="radio" value="1" th:field="*{waste_of_time}" checked="checked" />Tak</li>
+						<li><input name="q30" type="radio" value="0" th:field="*{waste_of_time}" />Nie</li>
+					</ul>
+					<button id="submit">Zatwierdź</button>
+
+			</form>
+		</main>
+		<!-- <footer>
+			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
+		</footer> -->
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/quiz.js"></script>
+</body>
+</html>

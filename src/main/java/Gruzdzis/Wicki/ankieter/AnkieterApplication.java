@@ -13,12 +13,3 @@ public class AnkieterApplication {
 	}
 
 }
-
-
-@RestController
-class HelloTest {
-	@GetMapping("/api")
-	String test() {
-		return "Hello World!";
-	}
-}
