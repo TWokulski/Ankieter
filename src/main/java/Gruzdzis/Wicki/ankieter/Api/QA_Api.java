@@ -75,7 +75,7 @@ public class QA_Api {
         respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
-            return "redirect:/GameQ";
+            return "redirect:/game_q";
         else
             return "redirect:/AddictionQ";
 
@@ -84,7 +84,7 @@ public class QA_Api {
     @GetMapping("/respondent/game")
     String game_Q(Model model) {
         model.addAttribute("game", new Game());
-        return "GameQ";
+        return "game_q";
     }
 
     @PostMapping("/add_game")
