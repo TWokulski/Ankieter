@@ -75,7 +75,7 @@ public class QA_Api {
         respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
-            return "redirect:/GameQ";
+            return "GameQ";
         else
             return "redirect:/AddictionQ";
 
