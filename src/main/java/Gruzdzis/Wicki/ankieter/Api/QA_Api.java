@@ -157,7 +157,12 @@ public class QA_Api {
     @PostMapping("/add_social")
     String addSocial(@ModelAttribute Social_life social_life) {
         socialRepository.save(social_life);
-        return "redirect:/respondent_q";
+        return "redirect:/end";
+    }
+
+    @GetMapping("/end")
+    String end() {
+        return "end";
     }
 
 
