@@ -101,7 +101,7 @@ public class QA_Api {
         Game gameToUpdate = gameRepository.getOne(gameDTO.getId());
         gameToUpdate.setMoney(money);
         money.setGame(gameToUpdate);
-        moneyRepository.save(money)
+        moneyRepository.save(money);
         gameRepository.save(gameToUpdate);
 
         return "redirect:/feelings_q";
