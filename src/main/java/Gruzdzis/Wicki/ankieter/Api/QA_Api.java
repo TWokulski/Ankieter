@@ -29,6 +29,7 @@ public class QA_Api {
 
     private RespondentDTO respondentDTO = new RespondentDTO();
     private GameDTO gameDTO = new GameDTO();
+    private Long id;
 
     public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
         this.respondentRepository = respondentRepository;
@@ -81,6 +82,7 @@ public class QA_Api {
          */
 
 
+        id = respondent.getId();
         respondentDTO.setId(respondent.getId());
         respondentRepository.save(respondent);
 
@@ -144,7 +146,7 @@ public class QA_Api {
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
 
-        Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
+        Respondent respondentToUpdate = respondentRepository.getOne(id);
         respondentToUpdate.setAddiction(addiction);
         addiction.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
