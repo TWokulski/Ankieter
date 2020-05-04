@@ -81,7 +81,8 @@ public class QA_Api {
          */
 
 
-        respondentDTO.setId(respondent.getId());
+        respondentDTO = new RespondentDTO(respondent.getId());
+
         respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
@@ -106,7 +107,7 @@ public class QA_Api {
         game.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-        gameDTO.setId(game.getId());
+        gameDTO = new GameDTO(game.getId());
         gameRepository.save(game);
 
         if(game.isSpending())
