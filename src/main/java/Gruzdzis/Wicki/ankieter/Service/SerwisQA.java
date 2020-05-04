@@ -4,7 +4,7 @@ import Gruzdzis.Wicki.ankieter.Model.*;
 import Gruzdzis.Wicki.ankieter.Repository.*;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public class SerwisQA {
 
     private RespondentRepository respondentRepository;
@@ -15,13 +15,6 @@ public class SerwisQA {
     private MoneyRepository moneyRepository;
     private SocialRepository socialRepository;
 
-    private Addiction addiction;
-    private Degrees degrees;
-    private Feelings feelings;
-    private Game game;
-    private Money money;
-    private Respondent respondent;
-    private Social_life social_life;
 
     public SerwisQA() {
     }
@@ -36,46 +29,7 @@ public class SerwisQA {
         this.socialRepository = socialRepository;
     }
 
-    public void setAddiction(Addiction addiction) {
-        this.addiction = addiction;
-    }
-
-    public void setDegrees(Degrees degrees) {
-        this.degrees = degrees;
-    }
-
-    public void setFeelings(Feelings feelings) {
-        this.feelings = feelings;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
-    public void setMoney(Money money) {
-        this.money = money;
-    }
-
-    public void setRespondent(Respondent respondent) {
-        this.respondent = respondent;
-    }
-
-    public void setSocial_life(Social_life social_life) {
-        this.social_life = social_life;
-    }
 
 
-    public void saveAnswers(){
 
-      
-
-        socialRepository.save(social_life);
-        moneyRepository.save(money);
-        feelingsRepository.save(feelings);
-        degreesRepository.save(degrees);
-        addictionRepository.save(addiction);
-        gameRepository.save(game);
-        respondentRepository.save(respondent);
-
-    }
 }

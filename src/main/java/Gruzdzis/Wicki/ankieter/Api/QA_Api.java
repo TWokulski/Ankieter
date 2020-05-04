@@ -2,6 +2,8 @@ package Gruzdzis.Wicki.ankieter.Api;
 
 import Gruzdzis.Wicki.ankieter.Model.*;
 import Gruzdzis.Wicki.ankieter.Repository.*;
+import Gruzdzis.Wicki.ankieter.Service.GameDTO;
+import Gruzdzis.Wicki.ankieter.Service.RespondentDTO;
 import Gruzdzis.Wicki.ankieter.Service.SerwisQA;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,9 +16,9 @@ public class QA_Api {
 
     //private TestRepository repository;
 
-    SerwisQA service;
+    //SerwisQA service;
 
-    /*
+
     private RespondentRepository respondentRepository;
     private AddictionRepository addictionRepository;
     private DegreesRepository degreesRepository;
@@ -25,12 +27,19 @@ public class QA_Api {
     private MoneyRepository moneyRepository;
     private SocialRepository socialRepository;
 
+    private RespondentDTO respondentDTO;
+    private GameDTO gameDTO;
 
-     */
-
-    public QA_Api(SerwisQA service) {
-        this.service = service;
+    public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
+        this.respondentRepository = respondentRepository;
+        this.addictionRepository = addictionRepository;
+        this.degreesRepository = degreesRepository;
+        this.feelingsRepository = feelingsRepository;
+        this.gameRepository = gameRepository;
+        this.moneyRepository = moneyRepository;
+        this.socialRepository = socialRepository;
     }
+
 
     @GetMapping({"/", "/respondent_q"})
     String respondent_Q(Model model) {
@@ -71,8 +80,9 @@ public class QA_Api {
         respondentRepository.save(respondent);
          */
 
-        //respondentRepository.save(respondent);
-        service.setRespondent(respondent);
+
+        respondentDTO.setId(respondent.getId());
+        respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
             return "redirect:/game_q";
@@ -90,8 +100,14 @@ public class QA_Api {
     @PostMapping("/add_game")
     String addGame(@ModelAttribute Game game) {
 
-        //gameRepository.save(game);
-        service.setGame(game);
+
+        Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
+        respondentToUpdate.setGame(game);
+        game.setRespondent(respondentToUpdate);
+        respondentRepository.save(respondentToUpdate);
+
+        gameDTO.setId(game.getId());
+        gameRepository.save(game);
 
         if(game.isSpending())
 
@@ -109,8 +125,13 @@ public class QA_Api {
 
     @PostMapping("/add_money")
     String addMoney(@ModelAttribute Money money) {
-        //moneyRepository.save(money);
-        service.setMoney(money);
+
+        Game gameToUpdate = gameRepository.getOne(gameDTO.getId());
+        gameToUpdate.setMoney(money);
+        money.setGame(gameToUpdate);
+        gameRepository.save(gameToUpdate);
+
+        moneyRepository.save(money);
         return "redirect:/feelings_q";
     }
 
@@ -122,8 +143,14 @@ public class QA_Api {
 
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
-        //addictionRepository.save(addiction);
-        service.setAddiction(addiction);
+
+        Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
+        respondentToUpdate.setAddiction(addiction);
+        addiction.setRespondent(respondentToUpdate);
+        respondentRepository.save(respondentToUpdate);
+
+        addictionRepository.save(addiction);
+
         return "redirect:/degrees_q";
     }
 
@@ -135,8 +162,14 @@ public class QA_Api {
 
     @PostMapping("/add_degrees")
     String addDegrees(@ModelAttribute Degrees degrees) {
-        //degreesRepository.save(degrees);
-        service.setDegrees(degrees);
+
+        Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
+        respondentToUpdate.setDegrees(degrees);
+        degrees.setRespondent(respondentToUpdate);
+        respondentRepository.save(respondentToUpdate);
+
+        degreesRepository.save(degrees);
+
         return "redirect:/social_q";
     }
 
@@ -148,8 +181,14 @@ public class QA_Api {
 
     @PostMapping("/add_feelings")
     String addFeelings(@ModelAttribute Feelings feelings) {
-        //feelingsRepository.save(feelings);
-        service.setFeelings(feelings);
+
+        Game gameToUpdate = gameRepository.getOne(gameDTO.getId());
+        gameToUpdate.setFeelings(feelings);
+        feelings.setGame(gameToUpdate);
+        gameRepository.save(gameToUpdate);
+
+        feelingsRepository.save(feelings);
+
         return "redirect:/addiction_q";
     }
 
@@ -161,9 +200,13 @@ public class QA_Api {
 
     @PostMapping("/add_social")
     String addSocial(@ModelAttribute Social_life social_life) {
-        //socialRepository.save(social_life);
-        service.setSocial_life(social_life);
-        service.saveAnswers();
+
+        Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
+        respondentToUpdate.setSocial_life(social_life);
+        social_life.setRespondent(respondentToUpdate);
+        respondentRepository.save(respondentToUpdate);
+
+        socialRepository.save(social_life);
         return "redirect:/end";
     }
 
