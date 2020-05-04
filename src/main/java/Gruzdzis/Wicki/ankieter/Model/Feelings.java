@@ -14,7 +14,7 @@ public class Feelings {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Game_id", nullable = false)
     private Game game;
 

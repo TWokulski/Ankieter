@@ -2,9 +2,8 @@ package Gruzdzis.Wicki.ankieter.Api;
 
 import Gruzdzis.Wicki.ankieter.Model.*;
 import Gruzdzis.Wicki.ankieter.Repository.*;
-import Gruzdzis.Wicki.ankieter.Service.GameDTO;
-import Gruzdzis.Wicki.ankieter.Service.RespondentDTO;
-import Gruzdzis.Wicki.ankieter.Service.SerwisQA;
+import Gruzdzis.Wicki.ankieter.DTO.GameDTO;
+import Gruzdzis.Wicki.ankieter.DTO.RespondentDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -53,43 +52,9 @@ public class QA_Api {
 
     @PostMapping("/add_respondent")
     String addRespondent(@ModelAttribute Respondent respondent) {
-
-
-        /*
-        respondent.setAddiction(addiction);
-        respondent.setDegrees(degrees);
-        respondent.setGame(game);
-        respondent.setSocial_life(social_life);
-
-        addiction.setRespondent(respondent);
-        degrees.setRespondent(respondent);
-        social_life.setRespondent(respondent);
-
-        game.setRespondent(respondent);
-        game.setFeelings(feelings);
-        game.setMoney(money);
-
-        money.setGame(game);
-        feelings.setGame(game);
-         */
-
-        /*
-
-        socialRepository.save(social_life);
-        moneyRepository.save(money);
-        feelingsRepository.save(feelings);
-        degreesRepository.save(degrees);
-        addictionRepository.save(addiction);
-        gameRepository.save(game);
-        respondentRepository.save(respondent);
-         */
-
-
-
+        
         respondentRepository.save(respondent);
         respondentDTO.setId(respondent.getId());
-        logger.info("id = " + respondentDTO.getId());
-
 
         if(respondent.isPlaying_games())
             return "redirect:/game_q";
@@ -113,8 +78,7 @@ public class QA_Api {
         game.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-
-        gameRepository.save(game);
+        //gameRepository.save(game);
         gameDTO.setId(game.getId());
 
         if(game.isSpending())
@@ -139,7 +103,6 @@ public class QA_Api {
         money.setGame(gameToUpdate);
         gameRepository.save(gameToUpdate);
 
-        moneyRepository.save(money);
         return "redirect:/feelings_q";
     }
 
@@ -152,13 +115,10 @@ public class QA_Api {
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
 
-        logger.info("Get: " + respondentDTO.getId());
         Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
         respondentToUpdate.setAddiction(addiction);
         addiction.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
-
-        //addictionRepository.save(addiction);
 
         return "redirect:/degrees_q";
     }
@@ -177,8 +137,6 @@ public class QA_Api {
         degrees.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-        degreesRepository.save(degrees);
-
         return "redirect:/social_q";
     }
 
@@ -195,8 +153,6 @@ public class QA_Api {
         gameToUpdate.setFeelings(feelings);
         feelings.setGame(gameToUpdate);
         gameRepository.save(gameToUpdate);
-
-        feelingsRepository.save(feelings);
 
         return "redirect:/addiction_q";
     }
@@ -215,7 +171,6 @@ public class QA_Api {
         social_life.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-        socialRepository.save(social_life);
         return "redirect:/end";
     }
 

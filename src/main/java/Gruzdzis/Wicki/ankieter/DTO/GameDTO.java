@@ -1,8 +1,4 @@
-package Gruzdzis.Wicki.ankieter.Service;
-
-import Gruzdzis.Wicki.ankieter.Model.Feelings;
-import Gruzdzis.Wicki.ankieter.Model.Money;
-import org.springframework.web.bind.annotation.ModelAttribute;
+package Gruzdzis.Wicki.ankieter.DTO;
 
 public class GameDTO {
     Long id;

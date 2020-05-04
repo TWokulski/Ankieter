@@ -1,6 +1,4 @@
-package Gruzdzis.Wicki.ankieter.Service;
-
-import Gruzdzis.Wicki.ankieter.Model.*;
+package Gruzdzis.Wicki.ankieter.DTO;
 
 public class RespondentDTO {
     Long id;
