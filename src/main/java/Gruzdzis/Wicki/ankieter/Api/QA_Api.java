@@ -52,7 +52,7 @@ public class QA_Api {
 
     @PostMapping("/add_respondent")
     String addRespondent(@ModelAttribute Respondent respondent) {
-        
+
         respondentRepository.save(respondent);
         respondentDTO.setId(respondent.getId());
 
@@ -76,9 +76,10 @@ public class QA_Api {
         Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
         respondentToUpdate.setGame(game);
         game.setRespondent(respondentToUpdate);
+        gameRepository.save(game);
         respondentRepository.save(respondentToUpdate);
 
-        //gameRepository.save(game);
+        //
         gameDTO.setId(game.getId());
 
         if(game.isSpending())
