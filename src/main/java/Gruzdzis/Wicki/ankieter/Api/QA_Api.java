@@ -87,7 +87,7 @@ public class QA_Api {
 
 
         respondentDTO.setId(respondent.getId());
-        //logger.info("id = " + respondentDTO.getId());
+        logger.info("id = " + respondentDTO.getId());
         respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
