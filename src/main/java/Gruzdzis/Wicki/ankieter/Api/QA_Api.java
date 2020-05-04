@@ -29,7 +29,7 @@ public class QA_Api {
     private SocialRepository socialRepository;
 
     private RespondentDTO respondentDTO = new RespondentDTO();
-    private GameDTO gameDTO;
+    private GameDTO gameDTO = new GameDTO();
 
 
     private final Logger logger = LoggerFactory.getLogger(QA_Api.class);
@@ -79,7 +79,6 @@ public class QA_Api {
         gameRepository.save(game);
         respondentRepository.save(respondentToUpdate);
 
-        //
         gameDTO.setId(game.getId());
 
         if(game.isSpending())
@@ -102,6 +101,7 @@ public class QA_Api {
         Game gameToUpdate = gameRepository.getOne(gameDTO.getId());
         gameToUpdate.setMoney(money);
         money.setGame(gameToUpdate);
+        moneyRepository.save(money)
         gameRepository.save(gameToUpdate);
 
         return "redirect:/feelings_q";
@@ -119,6 +119,7 @@ public class QA_Api {
         Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
         respondentToUpdate.setAddiction(addiction);
         addiction.setRespondent(respondentToUpdate);
+        addictionRepository.save(addiction);
         respondentRepository.save(respondentToUpdate);
 
         return "redirect:/degrees_q";
@@ -136,6 +137,7 @@ public class QA_Api {
         Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
         respondentToUpdate.setDegrees(degrees);
         degrees.setRespondent(respondentToUpdate);
+        degreesRepository.save(degrees);
         respondentRepository.save(respondentToUpdate);
 
         return "redirect:/social_q";
@@ -153,6 +155,7 @@ public class QA_Api {
         Game gameToUpdate = gameRepository.getOne(gameDTO.getId());
         gameToUpdate.setFeelings(feelings);
         feelings.setGame(gameToUpdate);
+        feelingsRepository.save(feelings);
         gameRepository.save(gameToUpdate);
 
         return "redirect:/addiction_q";
@@ -170,6 +173,7 @@ public class QA_Api {
         Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
         respondentToUpdate.setSocial_life(social_life);
         social_life.setRespondent(respondentToUpdate);
+        socialRepository.save(social_life);
         respondentRepository.save(respondentToUpdate);
 
         return "redirect:/end";
