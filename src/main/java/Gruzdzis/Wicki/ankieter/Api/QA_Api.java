@@ -29,13 +29,13 @@ public class QA_Api {
     private MoneyRepository moneyRepository;
     private SocialRepository socialRepository;
 
-    private RespondentDTO respondentDTO = new RespondentDTO();
-    private GameDTO gameDTO = new GameDTO();
-    private Long id;
+    private RespondentDTO respondentDTO;
+    private GameDTO gameDTO;
+
 
     private final Logger logger = LoggerFactory.getLogger(QA_Api.class);
 
-    public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
+    public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository, RespondentDTO respondentDTO, GameDTO gameDTO) {
         this.respondentRepository = respondentRepository;
         this.addictionRepository = addictionRepository;
         this.degreesRepository = degreesRepository;
@@ -43,8 +43,9 @@ public class QA_Api {
         this.gameRepository = gameRepository;
         this.moneyRepository = moneyRepository;
         this.socialRepository = socialRepository;
+        this.respondentDTO = respondentDTO;
+        this.gameDTO = gameDTO;
     }
-
 
     @GetMapping({"/", "/respondent_q"})
     String respondent_Q(Model model) {
@@ -86,7 +87,7 @@ public class QA_Api {
          */
 
 
-        id = respondent.getId();
+        logger.info("id = " + respondent.getId());
         respondentDTO.setId(respondent.getId());
         respondentRepository.save(respondent);
 
@@ -150,8 +151,8 @@ public class QA_Api {
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
 
-        logger.info("Get: " + id);
-        Respondent respondentToUpdate = respondentRepository.getOne(id);
+        logger.info("Get: " + respondentDTO.getId());
+        Respondent respondentToUpdate = respondentRepository.getOne(respondentDTO.getId());
         respondentToUpdate.setAddiction(addiction);
         addiction.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
