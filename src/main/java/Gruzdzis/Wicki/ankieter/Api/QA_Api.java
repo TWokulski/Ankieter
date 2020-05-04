@@ -5,6 +5,8 @@ import Gruzdzis.Wicki.ankieter.Repository.*;
 import Gruzdzis.Wicki.ankieter.Service.GameDTO;
 import Gruzdzis.Wicki.ankieter.Service.RespondentDTO;
 import Gruzdzis.Wicki.ankieter.Service.SerwisQA;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,8 @@ public class QA_Api {
     private RespondentDTO respondentDTO = new RespondentDTO();
     private GameDTO gameDTO = new GameDTO();
     private Long id;
+
+    private final Logger logger = LoggerFactory.getLogger(QA_Api.class);
 
     public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
         this.respondentRepository = respondentRepository;
@@ -146,6 +150,7 @@ public class QA_Api {
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
 
+        logger.info("Get: " + id);
         Respondent respondentToUpdate = respondentRepository.getOne(id);
         respondentToUpdate.setAddiction(addiction);
         addiction.setRespondent(respondentToUpdate);
