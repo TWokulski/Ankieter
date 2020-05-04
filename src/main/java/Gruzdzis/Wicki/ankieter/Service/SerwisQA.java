@@ -67,22 +67,7 @@ public class SerwisQA {
 
     public void saveAnswers(){
 
-        respondent.setAddiction(addiction);
-        respondent.setDegrees(degrees);
-        respondent.setGame(game);
-        respondent.setSocial_life(social_life);
-
-        addiction.setRespondent(respondent);
-        degrees.setRespondent(respondent);
-        social_life.setRespondent(respondent);
-
-        game.setRespondent(respondent);
-        game.setFeelings(feelings);
-        game.setMoney(money);
-
-        money.setGame(game);
-        feelings.setGame(game);
-
+      
 
         socialRepository.save(social_life);
         moneyRepository.save(money);
