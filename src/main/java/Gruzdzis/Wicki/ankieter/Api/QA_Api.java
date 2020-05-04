@@ -14,8 +14,9 @@ public class QA_Api {
 
     //private TestRepository repository;
 
-    //SerwisQA serwis;
+    SerwisQA service;
 
+    /*
     private RespondentRepository respondentRepository;
     private AddictionRepository addictionRepository;
     private DegreesRepository degreesRepository;
@@ -24,14 +25,11 @@ public class QA_Api {
     private MoneyRepository moneyRepository;
     private SocialRepository socialRepository;
 
-    public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
-        this.respondentRepository = respondentRepository;
-        this.addictionRepository = addictionRepository;
-        this.degreesRepository = degreesRepository;
-        this.feelingsRepository = feelingsRepository;
-        this.gameRepository = gameRepository;
-        this.moneyRepository = moneyRepository;
-        this.socialRepository = socialRepository;
+
+     */
+
+    public QA_Api(SerwisQA service) {
+        this.service = service;
     }
 
     @GetMapping({"/", "/respondent_q"})
@@ -72,7 +70,9 @@ public class QA_Api {
         gameRepository.save(game);
         respondentRepository.save(respondent);
          */
-        respondentRepository.save(respondent);
+
+        //respondentRepository.save(respondent);
+        service.setRespondent(respondent);
 
         if(respondent.isPlaying_games())
             return "redirect:/game_q";
@@ -90,7 +90,8 @@ public class QA_Api {
     @PostMapping("/add_game")
     String addGame(@ModelAttribute Game game) {
 
-        gameRepository.save(game);
+        //gameRepository.save(game);
+        service.setGame(game);
 
         if(game.isSpending())
 
@@ -108,7 +109,8 @@ public class QA_Api {
 
     @PostMapping("/add_money")
     String addMoney(@ModelAttribute Money money) {
-        moneyRepository.save(money);
+        //moneyRepository.save(money);
+        service.setMoney(money);
         return "redirect:/feelings_q";
     }
 
@@ -120,7 +122,8 @@ public class QA_Api {
 
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
-        addictionRepository.save(addiction);
+        //addictionRepository.save(addiction);
+        service.setAddiction(addiction);
         return "redirect:/degrees_q";
     }
 
@@ -132,7 +135,8 @@ public class QA_Api {
 
     @PostMapping("/add_degrees")
     String addDegrees(@ModelAttribute Degrees degrees) {
-        degreesRepository.save(degrees);
+        //degreesRepository.save(degrees);
+        service.setDegrees(degrees);
         return "redirect:/social_q";
     }
 
@@ -144,7 +148,8 @@ public class QA_Api {
 
     @PostMapping("/add_feelings")
     String addFeelings(@ModelAttribute Feelings feelings) {
-        feelingsRepository.save(feelings);
+        //feelingsRepository.save(feelings);
+        service.setFeelings(feelings);
         return "redirect:/addiction_q";
     }
 
@@ -156,7 +161,9 @@ public class QA_Api {
 
     @PostMapping("/add_social")
     String addSocial(@ModelAttribute Social_life social_life) {
-        socialRepository.save(social_life);
+        //socialRepository.save(social_life);
+        service.setSocial_life(social_life);
+        service.saveAnswers();
         return "redirect:/end";
     }
 

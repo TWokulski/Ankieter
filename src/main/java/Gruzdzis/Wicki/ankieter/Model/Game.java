@@ -13,6 +13,10 @@ public class Game {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Respondent_id", nullable = false)
+    private Respondent respondent;
+
     private String gameplay_type;
     private String type_of_game;
     private String gaming_time;
@@ -20,18 +24,29 @@ public class Game {
     private boolean time_increased;
     private boolean spending;
 
+    @OneToOne(mappedBy = "game", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Feelings feelings;
+
+    @OneToOne(mappedBy = "game", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Money money;
+
 
     public Game() {
     }
 
-    public Game(Long id, String gameplay_type, String type_of_game, String gaming_time, String started_age, boolean time_increased, boolean spending) {
+    public Game(Long id, Respondent respondent, String gameplay_type, String type_of_game, String gaming_time, String started_age, boolean time_increased, boolean spending, Feelings feelings, Money money) {
         this.id = id;
+        this.respondent = respondent;
         this.gameplay_type = gameplay_type;
         this.type_of_game = type_of_game;
         this.gaming_time = gaming_time;
         this.started_age = started_age;
         this.time_increased = time_increased;
         this.spending = spending;
+        this.feelings = feelings;
+        this.money = money;
     }
 
     public Long getId() {
@@ -42,7 +57,13 @@ public class Game {
         this.id = id;
     }
 
+    public Respondent getRespondent() {
+        return respondent;
+    }
 
+    public void setRespondent(Respondent respondent) {
+        this.respondent = respondent;
+    }
 
     public String getGameplay_type() {
         return gameplay_type;
@@ -92,4 +113,19 @@ public class Game {
         this.spending = spending;
     }
 
+    public Feelings getFeelings() {
+        return feelings;
+    }
+
+    public void setFeelings(Feelings feelings) {
+        this.feelings = feelings;
+    }
+
+    public Money getMoney() {
+        return money;
+    }
+
+    public void setMoney(Money money) {
+        this.money = money;
+    }
 }

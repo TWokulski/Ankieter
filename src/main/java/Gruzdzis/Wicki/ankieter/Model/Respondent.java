@@ -19,19 +19,37 @@ public class Respondent {
     private String living_with;
     private boolean playing_games;
 
+    @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Game game;
+
+    @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Addiction addiction;
+
+    @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Degrees degrees;
+
+    @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Social_life social_life;
 
 
     public Respondent() {
     }
 
-    public Respondent(Long id, boolean sex, String status, String study_degree, String living_with, boolean playing_games) {
+    public Respondent(Long id, boolean sex, String status, String study_degree, String living_with, boolean playing_games, Game game, Addiction addiction, Degrees degrees, Social_life social_life) {
         this.id = id;
         this.sex = sex;
         this.status = status;
         this.study_degree = study_degree;
         this.living_with = living_with;
         this.playing_games = playing_games;
-
+        this.game = game;
+        this.addiction = addiction;
+        this.degrees = degrees;
+        this.social_life = social_life;
     }
 
     public String getLiving_with() {
@@ -82,5 +100,35 @@ public class Respondent {
         this.playing_games = playing_games;
     }
 
+    public Game getGame() {
+        return game;
+    }
 
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public Addiction getAddiction() {
+        return addiction;
+    }
+
+    public void setAddiction(Addiction addiction) {
+        this.addiction = addiction;
+    }
+
+    public Degrees getDegrees() {
+        return degrees;
+    }
+
+    public void setDegrees(Degrees degrees) {
+        this.degrees = degrees;
+    }
+
+    public Social_life getSocial_life() {
+        return social_life;
+    }
+
+    public void setSocial_life(Social_life social_life) {
+        this.social_life = social_life;
+    }
 }

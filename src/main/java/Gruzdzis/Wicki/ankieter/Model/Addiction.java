@@ -13,6 +13,9 @@ public class Addiction {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Respondent_id", nullable = false)
+    private Respondent respondent;
 
     private String what_is_game_addiction;
     private boolean awareness_of_addiction;
@@ -21,8 +24,9 @@ public class Addiction {
     public Addiction() {
     }
 
-    public Addiction(Long id, String what_is_game_addiction, boolean awareness_of_addiction, boolean waste_of_time) {
+    public Addiction(Long id, Respondent respondent, String what_is_game_addiction, boolean awareness_of_addiction, boolean waste_of_time) {
         this.id = id;
+        this.respondent = respondent;
         this.what_is_game_addiction = what_is_game_addiction;
         this.awareness_of_addiction = awareness_of_addiction;
         this.waste_of_time = waste_of_time;
@@ -44,6 +48,13 @@ public class Addiction {
         this.id = id;
     }
 
+    public Respondent getRespondent() {
+        return respondent;
+    }
+
+    public void setRespondent(Respondent respondent) {
+        this.respondent = respondent;
+    }
 
     public String getWhat_is_game_addiction() {
         return what_is_game_addiction;

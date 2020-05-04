@@ -13,6 +13,9 @@ public class Money {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Game_id", nullable = false)
+    private Game game;
     private String amount_of_spending;
     private String reason;
 
@@ -20,9 +23,9 @@ public class Money {
     public Money() {
     }
 
-    public Money(Long id, String amount_of_spending, String reason) {
+    public Money(Long id, Game game, String amount_of_spending, String reason) {
         this.id = id;
-
+        this.game = game;
         this.amount_of_spending = amount_of_spending;
         this.reason = reason;
     }
@@ -35,6 +38,13 @@ public class Money {
         this.id = id;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     public String getAmount_of_spending() {
         return amount_of_spending;

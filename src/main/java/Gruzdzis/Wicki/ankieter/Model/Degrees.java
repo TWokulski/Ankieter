@@ -13,6 +13,10 @@ public class Degrees {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Respondent_id", nullable = false)
+    private Respondent respondent;
+
     private Float average;
     private boolean degrees_get_better;
     private boolean absence_form_classes;
@@ -20,8 +24,9 @@ public class Degrees {
     public Degrees() {
     }
 
-    public Degrees(Long id, Float average, boolean degrees_get_better, boolean absence_form_classes) {
+    public Degrees(Long id, Respondent respondent, Float average, boolean degrees_get_better, boolean absence_form_classes) {
         this.id = id;
+        this.respondent = respondent;
         this.average = average;
         this.degrees_get_better = degrees_get_better;
         this.absence_form_classes = absence_form_classes;
@@ -35,6 +40,13 @@ public class Degrees {
         this.id = id;
     }
 
+    public Respondent getRespondent() {
+        return respondent;
+    }
+
+    public void setRespondent(Respondent respondent) {
+        this.respondent = respondent;
+    }
 
     public Float getAverage() {
         return average;

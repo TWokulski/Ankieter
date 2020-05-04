@@ -14,6 +14,10 @@ public class Feelings {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Game_id", nullable = false)
+    private Game game;
+
     private boolean anger_when_leveling;
     private boolean anger_when_loosing;
     private boolean loss_of_hobbies;
@@ -25,9 +29,9 @@ public class Feelings {
     public Feelings() {
     }
 
-    public Feelings(Long id, boolean anger_when_leveling, boolean anger_when_loosing, boolean loss_of_hobbies, boolean thoughts_about_game, boolean waste_of_good_timing, boolean health_issue, String symptoms) {
+    public Feelings(Long id, Game game, boolean anger_when_leveling, boolean anger_when_loosing, boolean loss_of_hobbies, boolean thoughts_about_game, boolean waste_of_good_timing, boolean health_issue, String symptoms) {
         this.id = id;
-
+        this.game = game;
         this.anger_when_leveling = anger_when_leveling;
         this.anger_when_loosing = anger_when_loosing;
         this.loss_of_hobbies = loss_of_hobbies;
@@ -45,6 +49,13 @@ public class Feelings {
         this.id = id;
     }
 
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
     public boolean isAnger_when_leveling() {
         return anger_when_leveling;

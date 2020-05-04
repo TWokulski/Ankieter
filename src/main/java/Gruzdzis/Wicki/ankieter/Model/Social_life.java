@@ -13,7 +13,9 @@ public class Social_life {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
-
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "Respondent_id", nullable = false)
+    private Respondent respondent;
 
     private boolean friends_complaining;
     private boolean game_friend_easier;
@@ -24,9 +26,9 @@ public class Social_life {
     public Social_life() {
     }
 
-    public Social_life(Long id,  boolean friends_complaining, boolean game_friend_easier, boolean real_life_difficult, String reasons_of_game_friends) {
+    public Social_life(Long id, Respondent respondent, boolean friends_complaining, boolean game_friend_easier, boolean real_life_difficult, String reasons_of_game_friends) {
         this.id = id;
-
+        this.respondent = respondent;
         this.friends_complaining = friends_complaining;
         this.game_friend_easier = game_friend_easier;
         this.real_life_difficult = real_life_difficult;
@@ -41,6 +43,13 @@ public class Social_life {
         this.id = id;
     }
 
+    public Respondent getRespondent() {
+        return respondent;
+    }
+
+    public void setRespondent(Respondent respondent) {
+        this.respondent = respondent;
+    }
 
     public boolean isFriends_complaining() {
         return friends_complaining;
