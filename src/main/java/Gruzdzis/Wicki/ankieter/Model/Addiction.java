@@ -13,7 +13,7 @@ public class Addiction {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "Respondent_id", nullable = false)
     private Respondent respondent;
 
