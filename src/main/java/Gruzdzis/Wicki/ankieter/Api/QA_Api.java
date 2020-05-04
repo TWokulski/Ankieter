@@ -27,8 +27,8 @@ public class QA_Api {
     private MoneyRepository moneyRepository;
     private SocialRepository socialRepository;
 
-    private RespondentDTO respondentDTO;
-    private GameDTO gameDTO;
+    private RespondentDTO respondentDTO = new RespondentDTO();
+    private GameDTO gameDTO = new GameDTO();
 
     public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
         this.respondentRepository = respondentRepository;
@@ -81,8 +81,7 @@ public class QA_Api {
          */
 
 
-        respondentDTO = new RespondentDTO(respondent.getId());
-
+        respondentDTO.setId(respondent.getId());
         respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
@@ -107,7 +106,7 @@ public class QA_Api {
         game.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-        gameDTO = new GameDTO(game.getId());
+        gameDTO.setId(game.getId());
         gameRepository.save(game);
 
         if(game.isSpending())

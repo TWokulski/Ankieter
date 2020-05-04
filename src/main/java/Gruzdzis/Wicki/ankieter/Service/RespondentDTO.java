@@ -5,6 +5,9 @@ import Gruzdzis.Wicki.ankieter.Model.*;
 public class RespondentDTO {
     Long id;
 
+    public RespondentDTO() {
+    }
+
     public RespondentDTO(Long id) {
         this.id = id;
     }

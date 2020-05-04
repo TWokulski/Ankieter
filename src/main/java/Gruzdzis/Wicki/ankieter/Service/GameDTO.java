@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 public class GameDTO {
     Long id;
 
+    public GameDTO() {
+    }
+
     public GameDTO(Long id) {
         this.id = id;
     }
