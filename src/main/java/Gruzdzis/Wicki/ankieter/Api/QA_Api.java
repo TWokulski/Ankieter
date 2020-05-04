@@ -158,7 +158,7 @@ public class QA_Api {
         addiction.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-        addictionRepository.save(addiction);
+        //addictionRepository.save(addiction);
 
         return "redirect:/degrees_q";
     }

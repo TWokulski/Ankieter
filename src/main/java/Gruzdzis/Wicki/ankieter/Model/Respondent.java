@@ -23,7 +23,7 @@ public class Respondent {
             cascade = CascadeType.ALL)
     private Game game;
 
-    @OneToOne(mappedBy = "respondent", fetch = FetchType.EAGER,
+    @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Addiction addiction;
 
