@@ -35,7 +35,7 @@ public class QA_Api {
 
     private final Logger logger = LoggerFactory.getLogger(QA_Api.class);
 
-    public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository, RespondentDTO respondentDTO, GameDTO gameDTO) {
+    public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
         this.respondentRepository = respondentRepository;
         this.addictionRepository = addictionRepository;
         this.degreesRepository = degreesRepository;
@@ -43,8 +43,6 @@ public class QA_Api {
         this.gameRepository = gameRepository;
         this.moneyRepository = moneyRepository;
         this.socialRepository = socialRepository;
-        this.respondentDTO = respondentDTO;
-        this.gameDTO = gameDTO;
     }
 
     @GetMapping({"/", "/respondent_q"})
@@ -87,8 +85,9 @@ public class QA_Api {
          */
 
 
-        logger.info("id = " + respondent.getId());
+
         respondentDTO.setId(respondent.getId());
+        logger.info("id = " + respondentDTO.getId());
         respondentRepository.save(respondent);
 
         if(respondent.isPlaying_games())
