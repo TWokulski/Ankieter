@@ -13,8 +13,8 @@ public class Addiction {
     @GenericGenerator(name="inc", strategy = "increment")
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "Respondent_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Respondent_id")
     private Respondent respondent;
 
     private String what_is_game_addiction;

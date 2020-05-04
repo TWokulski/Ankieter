@@ -116,7 +116,7 @@ public class QA_Api {
 
         gameRepository.save(game);
         gameDTO.setId(game.getId());
-        
+
         if(game.isSpending())
 
             return "redirect:/money_q";
