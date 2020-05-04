@@ -86,9 +86,10 @@ public class QA_Api {
 
 
 
+        respondentRepository.save(respondent);
         respondentDTO.setId(respondent.getId());
         logger.info("id = " + respondentDTO.getId());
-        respondentRepository.save(respondent);
+
 
         if(respondent.isPlaying_games())
             return "redirect:/game_q";
@@ -112,9 +113,10 @@ public class QA_Api {
         game.setRespondent(respondentToUpdate);
         respondentRepository.save(respondentToUpdate);
 
-        gameDTO.setId(game.getId());
-        gameRepository.save(game);
 
+        gameRepository.save(game);
+        gameDTO.setId(game.getId());
+        
         if(game.isSpending())
 
             return "redirect:/money_q";
