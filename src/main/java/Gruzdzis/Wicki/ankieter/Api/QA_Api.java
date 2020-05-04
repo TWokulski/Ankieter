@@ -29,7 +29,7 @@ public class QA_Api {
     private MoneyRepository moneyRepository;
     private SocialRepository socialRepository;
 
-    private RespondentDTO respondentDTO;
+    private RespondentDTO respondentDTO = new RespondentDTO();
     private GameDTO gameDTO;
 
 
