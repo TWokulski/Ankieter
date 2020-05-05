@@ -11,23 +11,23 @@
 	<header>
 		<h3>Ocena uzależnienia od gier komputerowych wśród studentów ETI </h3>
 	</header>
-	<div class="container">
+	<div class="container1">
 		
 		<main>
 				<form class="questionForm" id="q15" data-question="15" th:action="@{/add_addiction}" th:object="${addiction}" method="post">
-					<h3>15.Czy uważasz, że gry komputerowe moga uzależniać ?</h3>
+					<h3>Czy uważasz, że gry komputerowe moga uzależniać ?</h3>
 					<ul>
 						<li><input name="q15" type="radio" value="1" th:field="*{awareness_of_addiction}" checked="checked" />Tak</li>
 						<li><input name="q15" type="radio" value="0" th:field="*{awareness_of_addiction}" />Nie</li>
 					</ul>
-					<h3>16.Co uważasz jako określenie uzależneinia od gier komputerowych?</h3>
+					<h3>Co uważasz jako określenie uzależneinia od gier komputerowych?</h3>
 					<ul>
 						<li><input name="q16" type="radio" value="Wlaczanie komputera odrazu po przebudzeniu" th:field="*{what_is_game_addiction}" checked="checked" />Włączanie komputera odrazu po przebudzeniu w celu gry.</li>
 						<li><input name="q16" type="radio" value="Brak zainteresowania otaczajacym swiatem rzeczywistym" th:field="*{what_is_game_addiction}"/>Brak zainteresowania otaczającym światem rzeczywistym</li>
 						<li><input name="q16" type="radio" value="potrzeby dostepu do komputera" th:field="*{what_is_game_addiction}"/>Lompulsywne, odczuwnie silnej i nieprzerwanej potrzeby dostępu do komputera oraz Internetu</li>
 						<li><input name="q16" type="radio" value="Odczuwanie niepokoju w chwili braku dostepu do komputera" th:field="*{what_is_game_addiction}"/>Odczuwanie niepokoju w chwili braku dostępu do komputera.</li>
 					</ul>
-					<h3>30.Czy uważasz, że granie w gry jest równoznaczne z utratą czasu?</h3>
+					<h3>Czy uważasz, że granie w gry jest równoznaczne z utratą czasu?</h3>
 					<ul>
 						<li><input name="q30" type="radio" value="1" th:field="*{waste_of_time}" checked="checked" />Tak</li>
 						<li><input name="q30" type="radio" value="0" th:field="*{waste_of_time}" />Nie</li>

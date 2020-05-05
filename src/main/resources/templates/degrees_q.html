@@ -11,17 +11,17 @@
 	<header>
 		<h3>Ocena uzależnienia od gier komputerowych wśród studentów ETI </h3>
 	</header>
-	<div class="container">
+	<div class="container2">
 		
 		<main>
 
 			<form class="questionForm" id="q31" data-question="31" th:action="@{/add_degrees}" th:object="${degrees}" method="post">
-				<h3>31.Czy uwążasz, że twoje oceny polepszyły/pogorszyły się od kiedy grasz więcej na komputerze?</h3>
+				<h3>Czy uwążasz, że twoje oceny polepszyły/pogorszyły się od kiedy grasz więcej na komputerze?</h3>
 				<ul>
 					<li><input name="q31" type="radio" value="1" th:field="*{degrees_get_better}" checked="checked" />Polepszyły</li>
 					<li><input name="q31" type="radio" value="0" th:field="*{degrees_get_better}" />Pogorszyły</li>
 				</ul>
-				<h3>11.Czy zdarzyło się Tobie nie pójść na zajęcia ze względu na grę?</h3>
+				<h3>Czy zdarzyło się Tobie nie pójść na zajęcia ze względu na grę?</h3>
 				<ul>
 					<li><input name="q11" type="radio" value="1" th:field="*{absence_form_classes}" checked="checked"/>Tak</li>
 					<li><input name="q11" type="radio" value="0" th:field="*{absence_form_classes}" />Nie</li>
