@@ -15,11 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class QA_Api {
 
-    //private TestRepository repository;
-
-    //SerwisQA service;
-
-
     private RespondentRepository respondentRepository;
     private AddictionRepository addictionRepository;
     private DegreesRepository degreesRepository;
