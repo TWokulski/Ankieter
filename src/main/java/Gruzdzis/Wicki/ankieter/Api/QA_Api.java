@@ -44,6 +44,16 @@ public class QA_Api {
         this.socialRepository = socialRepository;
     }
 
+    @GetMapping("/")
+    String welcome_web() {
+        return "start_page";
+    }
+
+    @GetMapping("/end")
+    String end_web() {
+        return "end_page";
+    }
+
     @GetMapping({"/respondent_q"})
     String respondent_Q(Model model) {
         model.addAttribute("respondent", new Respondent());
@@ -177,11 +187,6 @@ public class QA_Api {
         respondentRepository.save(respondentToUpdate);
 
         return "redirect:/end";
-    }
-
-    @GetMapping("/end")
-    String end() {
-        return "end";
     }
 
 
