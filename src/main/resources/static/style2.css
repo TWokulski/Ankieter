@@ -6,21 +6,22 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background:#000 ;
+    background:#f4f4f4;
     font-family: Arial, Helvetica, sans-serif;
 }
 h1{
     margin:0;
     padding:0;
-    color: #111;
+    background:#f4f4f4;
     font-size: 16em;
+    color:#f4f4f4;
 
 }
 h1 span{
     display: table-cell;
     margin: 0;
     padding: 0;
-    animation: animate 3s linear infinite;
+    animation: animate 3.6s linear infinite;
 }
 h1 span:nth-last-child(6)
 {
@@ -28,40 +29,40 @@ h1 span:nth-last-child(6)
 }
 h1 span:nth-last-child(5)
 {
-    animation-delay: 0.5s;
+    animation-delay: 0.60s;
 }
 h1 span:nth-last-child(4)
 {
-    animation-delay: 1s;
+    animation-delay: 1.2s;
 }
 h1 span:nth-last-child(3)
 {
-    animation-delay: 1.5s;
+    animation-delay: 1.8s;
 }
 h1 span:nth-last-child(2)
 {
-    animation-delay: 2s;
+    animation-delay: 2.4s;
 }
 h1 span:nth-last-child(1)
 {
-    animation-delay: 2.5s;
+    animation-delay: 3s;
 }
 @keyframes animate
 {
     0%,100%{
-        color: #fff;
+        color: #4A148C;
         filter:blur(2px);
-        text-shadow: 0 0 10px #00b3ff,
-                    0 0 20px #00b3ff,
-                    0 0 40px #00b3ff,
-                    0 0 80px #00b3ff,
-                    0 0 120px #00b3ff,
-                    0 0 200px #00b3ff,
-                    0 0 300px #00b3ff,
-                    0 0 400px #00b3ff;
+        text-shadow: 0 0 10px #4A148C,
+                    0 0 20px #4A148C,
+                    0 0 40px #4A148C,
+                    0 0 80px #4A148C,
+                    0 0 120px #4A148C,
+                    0 0 200px #4A148C,
+                    0 0 300px #4A148C,
+                    0 0 400px #4A148C,
     }
     5%,95%{
-        color: #111;
+        color: #fff;
         filter:blur(0px);
         text-shadow:none;
     }
