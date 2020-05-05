@@ -27,7 +27,7 @@
 				</ul>
 				<h3>Mieszkasz z..</h3>
 				<ul>
-					<li><input name="q3" type="radio" value="Sam" th:field="*{living_with}" checked="checked" />Sam/a</li>
+					<li><input name="q3" type="radio" value="Sam" id = "living" th:field="*{living_with}" />Sam/a</li>
 					<li><input name="q3" type="radio" value="Rodzice" th:field="*{living_with}" />Z rodzicami</li>
 					<li><input name="q3" type="radio" value="Lokator" th:field="*{living_with}" />Z lokatorem/lokatorką</li>
 					<li><input name="q3" type="radio" value="Partner" th:field="*{living_with}" />Z partnerem/partnerką</li>
@@ -52,6 +52,10 @@
 			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
 		</footer> -->
 	</div>
+	<script>
+		document.getElementById("living").setAttribute("checked","checked")
+	</script>
+
 	<script src="js/jquery.js"></script>
 	<script src="js/quiz.js"></script>
 </body>
