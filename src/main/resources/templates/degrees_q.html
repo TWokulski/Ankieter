@@ -18,17 +18,17 @@
 			<form class="questionForm" id="q31" data-question="31" th:action="@{/add_degrees}" th:object="${degrees}" method="post">
 				<h3>Czy uwążasz, że twoje oceny polepszyły/pogorszyły się od kiedy grasz więcej na komputerze?</h3>
 				<ul>
-					<li><input name="q31" type="radio" value="1" th:field="*{degrees_get_better}" checked="checked" />Polepszyły</li>
+					<li><input name="q31" type="radio" value="1"  id = "degButt" th:field="*{degrees_get_better}"/>Polepszyły</li>
 					<li><input name="q31" type="radio" value="0" th:field="*{degrees_get_better}" />Pogorszyły</li>
 				</ul>
 				<h3>Czy zdarzyło się Tobie nie pójść na zajęcia ze względu na grę?</h3>
 				<ul>
-					<li><input name="q11" type="radio" value="1" th:field="*{absence_form_classes}" checked="checked"/>Tak</li>
+					<li><input name="q11" type="radio" value="1"  id = "absButt" th:field="*{absence_form_classes}"/>Tak</li>
 					<li><input name="q11" type="radio" value="0" th:field="*{absence_form_classes}" />Nie</li>
 				</ul>
 				<h3>Twoja średnia z zeszłego semestru jest powyżej:</h3>
 				<ul>
-					<li><input name="q12" type="radio" value="4.5" th:field="*{average}" checked="checked"/>4.5</li>
+					<li><input name="q12" type="radio" value="4.5"  id = "avrButt" th:field="*{average}"/>4.5</li>
 					<li><input name="q12" type="radio" value="4.0" th:field="*{average}" />4.0</li>
 					<li><input name="q12" type="radio" value="3.5" th:field="*{average}" />3.5</li>
 					<li><input name="q12" type="radio" value="3.0" th:field="*{average}" />3.0</li>
@@ -40,6 +40,11 @@
 			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
 		</footer> -->
 	</div>
+	<script>
+		document.getElementById("degButt").setAttribute("checked","checked")
+		document.getElementById("absButt").setAttribute("checked","checked")
+		document.getElementById("avrButt").setAttribute("checked","checked")
+	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/quiz.js"></script>
 </body>

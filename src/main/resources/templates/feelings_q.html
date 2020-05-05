@@ -18,40 +18,41 @@
 			<form class="questionForm" id="q17" data-question="17" th:action="@{/add_feelings}" th:object="${feelings}" method="post">
 				<h3>Czy odczuwasz złość gdy nie może przejść danego poziomu? </h3>
 				<ul>
-					<li><input name="q17" type="radio" value="1" th:field="*{anger_when_leveling}" checked="checked" />Tak</li>
+					<li><input name="q17" type="radio" value="1"  id = "levButt" th:field="*{anger_when_leveling}"/>Tak</li>
 					<li><input name="q17" type="radio" value="0" th:field="*{anger_when_leveling}" />Nie</li>
 				</ul>
 				<h3>Czy często myślisz o o tym, co dzieje się w sieci lub w ulubionej grze komputerowej, np. w nocy, w pracy, na uczelni?</h3>
 				<ul>
-					<li><input name="q18" type="radio" value="1" th:field="*{thoughts_about_game}" checked="checked" />Tak</li>
+					<li><input name="q18" type="radio" value="1"  id = "dreamButt" th:field="*{thoughts_about_game}"/>Tak</li>
 					<li><input name="q18" type="radio" value="0" th:field="*{thoughts_about_game}" />Nie</li>
 				</ul>
 				<h3>Czy odczuwasz złość gdy przegrywa na innego gracza? </h3>
 				<ul>
-					<li><input name="q19" type="radio" value="1" th:field="*{anger_when_loosing}" checked="checked" />Tak</li>
+					<li><input name="q19" type="radio" value="1"  id = "angerButt" th:field="*{anger_when_loosing}"/>Tak</li>
 					<li><input name="q19" type="radio" value="0" th:field="*{anger_when_loosing}" />Nie</li>
 				</ul>
 				<button id="submit">Zatwierdź</button>
 				<h3>Czy traci Pan/Pan poczucie czasu grając w gry? </h3>
 				<ul>
-					<li><input name="q20" type="radio" value="1" th:field="*{waste_of_good_timing}" checked="checked" />Tak</li>
+					<li><input name="q20" type="radio" value="1"  id = "goodTButt" th:field="*{waste_of_good_timing}"/>Tak</li>
 					<li><input name="q20" type="radio" value="0" th:field="*{waste_of_good_timing}" />Nie</li>
 				</ul>
 				<h3>Czy Pana/Pani zdaniem długie siedzenie przed komputerem ma negatywny wpływ na Pańskie samopoczucie ?</h3>
 				<ul>
-					<li><input name="q21" type="radio" value="1" th:field="*{health_issue}" checked="checked" />Tak</li>
+					<li><input name="q21" type="radio" value="1"  id = "feelButt" th:field="*{health_issue}"/>Tak</li>
 					<li><input name="q21" type="radio" value="0" th:field="*{health_issue}" />Nie</li>
 				</ul>
-				<h3>Jakie negatywne symptomy zaobserwowałeś/zaobserwowałaś u siebie siedząc długo przed komputerem ?</h3>
+				<h3>Które z tych symptomów jesteś w stanie zaobserwować u siebie siedząc długo przed komputerem?</h3>
 				<ul>
-					<li><input name="q22" type="radio" value="Bol glowy" th:field="*{symptoms}" checked="checked" />Bóle głowy</li>
+					<li><input name="q22" type="radio" value="Bol glowy"  id = "sympButt" th:field="*{symptoms}"/>Bóle głowy</li>
 					<li><input name="q22" type="radio" value="Lzawienie oczu" th:field="*{symptoms}" />Łzawienie z oczu</li>
 					<li><input name="q22" type="radio" value="Rozdraznienie" th:field="*{symptoms}" />Rozdrażnienie</li>
 					<li><input name="q22" type="radio" value="Zmeczenie" th:field="*{symptoms}" />Zmęczenie</li>
+					<li><input name="q22" type="radio" value="brak" th:field="*{symptoms}" />Żadne z powyższych</li>
 				</ul>
 					<h3>Czy w przeciągu ostatnich lat zauważyłeś/zuważyłaś zmniejszenie ilości zainteresowań?</h3>
 					<ul>
-						<li><input name="q29" type="radio" value="1" th:field="*{loss_of_hobbies}" checked="checked" />Tak</li>
+						<li><input name="q29" type="radio" value="1"  id = "hobbiesButt" th:field="*{loss_of_hobbies}"/>Tak</li>
 						<li><input name="q29" type="radio" value="0" th:field="*{loss_of_hobbies}" />Nie</li>
 					</ul>
 				<button id="submit">Zatwierdź</button>
@@ -62,6 +63,14 @@
 			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
 		</footer> -->
 	</div>
+	<script>
+		document.getElementById("levButt").setAttribute("checked","checked")
+		document.getElementById("dreamButt").setAttribute("checked","checked")
+		document.getElementById("goodTButt").setAttribute("checked","checked")
+		document.getElementById("feelButt").setAttribute("checked","checked")
+		document.getElementById("sympButt").setAttribute("checked","checked")
+		document.getElementById("hobbiesButt").setAttribute("checked","checked")
+	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/quiz.js"></script>
 </body>

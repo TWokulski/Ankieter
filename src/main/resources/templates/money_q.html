@@ -18,14 +18,14 @@
 			<form class="questionForm" id="q13" data-question="13" th:action="@{/add_money}" th:object="${money}" method="post">
 				<h3>Ile wydałeś/wydałaś pieniędzy na gry komputerowe (nie licząc kosztów zakupu gier)?</h3>
 				<ul>
-					<li><input name="q13" type="radio" value="50-100" th:field="*{amount_of_spending}" checked="checked" />Od 50 do 100 złoty</li>
+					<li><input name="q13" type="radio" value="50-100" th:field="*{amount_of_spending}"  id = "amountButt" />Od 50 do 100 złoty</li>
 					<li><input name="q13" type="radio" value="100-500" th:field="*{amount_of_spending}" />Od 100 do 500 złoty</li>
 					<li><input name="q13" type="radio" value="500-2000" th:field="*{amount_of_spending}" />Od 500 do 2000 złoty</li>
 					<li><input name="q13" type="radio" value="2000+" th:field="*{amount_of_spending}" />Powyżej 2000 złoty</li>
 				</ul>
 				<h3>Dlaczego wydawałeś/wydawałaś lub wydajesz realne pieniądze na gry komputerowe?</h3>
 				<ul>
-					<li><input name="q14" type="radio" value="Abonament" th:field="*{reason}" checked="checked" />Z powodu abonamentu</li>
+					<li><input name="q14" type="radio" value="Abonament" th:field="*{reason}"  id = "reasonButt" />Z powodu abonamentu</li>
 					<li><input name="q14" type="radio" value="Dodatkowe uslugi" th:field="*{reason}" />Dla dodatkowych usług</li>
 					<li><input name="q14" type="radio" value="inne" th:field="*{reason}" />Żadne z powyższych</li>
 				</ul>
@@ -36,6 +36,10 @@
 			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
 		</footer> -->
 	</div>
+	<script>
+		document.getElementById("amountButt").setAttribute("checked","checked")
+		document.getElementById("reasonButt").setAttribute("checked","checked")
+	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/quiz.js"></script>
 </body>

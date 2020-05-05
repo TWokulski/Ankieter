@@ -17,38 +17,38 @@
 			<form class="questionForm" id="q6" data-question="6" th:action="@{/add_game}" th:object="${game}" method="post">
 				<h3>Jaki rodzaj gier komputerowych preferujesz?</h3>
 				<ul>
-					<li><input name="q6" type="radio" value="Zrecznosciowe" th:field="*{type_of_game}" checked="checked"/>Zręcznościowe</li>
+					<li><input name="q6" type="radio" value="Zrecznosciowe" th:field="*{type_of_game}"  id = "typeButt" />Zręcznościowe</li>
 					<li><input name="q6" type="radio" value="Przygodowe" th:field="*{type_of_game}" />Przygodowe</li>
 					<li><input name="q6" type="radio" value="Sportowe" th:field="*{type_of_game}" />Sportowe</li>
 					<li><input name="q6" type="radio" value="Logiczne" th:field="*{type_of_game}" />Logiczne</li>
 				</ul>
 				<h3>Jaki typ gier komputerowych preferujesz ?</h3>
 				<ul>
-					<li><input name="q7" type="radio" value="Multi-player" th:field="*{gameplay_type}" checked="checked" />Multi-player</li>
+					<li><input name="q7" type="radio" value="Multi-player" th:field="*{gameplay_type}" id = "smButt" />Multi-player</li>
 					<li><input name="q7" type="radio" value="Single-player" th:field="*{gameplay_type}" />Single-player</li>
 				</ul>
 				<h3>Ile miałęś/aś lat gdy zacząłeś/zaczełaś grać w gry komputerowe?</h3>
 				<ul>
-					<li><input name="q8" type="radio" value="Ponizej 10" th:field="*{started_age}" checked="checked" />Poniżej 10 lat</li>
+					<li><input name="q8" type="radio" value="Ponizej 10" th:field="*{started_age}"  id = "ageButt" />Poniżej 10 lat</li>
 					<li><input name="q8" type="radio" value="10-15" th:field="*{started_age}" />Od 10 do 15 lat</li>
 					<li><input name="q8" type="radio" value="15-20" th:field="*{started_age}" />Od 15 do 20 lat</li>
 					<li><input name="q8" type="radio" value="Powyzej 20" th:field="*{started_age}" />Powyżej 20 lat</li>
 				</ul>
 				<h3>Jak dużo czasu poświęcasz na gry komputerowe w ciągu dnia?</h3>
 				<ul>
-					<li><input name="q9" type="radio" value="Ponizej 1h" th:field="*{gaming_time}" checked="checked" />Poniżej 1 godziny</li>
+					<li><input name="q9" type="radio" value="Ponizej 1h" th:field="*{gaming_time}"  id = "timeButt" />Poniżej 1 godziny</li>
 					<li><input name="q9" type="radio" value="1-2h" th:field="*{gaming_time}" />Od 1 do 2 godzin</li>
 					<li><input name="q9" type="radio" value="2-5h" th:field="*{gaming_time}" />Od 2 do 5 godzin</li>
 					<li><input name="q9" type="radio" value="Powyzej 5h" th:field="*{gaming_time}" />Powyżej 5 godzin</li>
 				</ul>
 				<h3>Czy Twój czas spędzany na graniu w gry komputerowe zwiększył się na przestrzeni ostatnich lat?</h3>
 				<ul>
-					<li><input name="q10" type="radio" value="1" th:field="*{time_increased}" checked="checked" />Tak</li>
+					<li><input name="q10" type="radio" value="1" th:field="*{time_increased}"  id = "incrButt" />Tak</li>
 					<li><input name="q10" type="radio" value="0" th:field="*{time_increased}" />Nie</li>
 				</ul>
 				<h3>Czy wydawałeś/wydawałaś lub wydajesz realne pieniądze na gry komputerowe (nie licząc kosztów zakupu gier)?</h3>
 				<ul>
-					<li><input name="q12" type="radio" value="1" th:field="*{spending}" checked="checked" />Tak</li>
+					<li><input name="q12" type="radio" value="1" th:field="*{spending}"  id = "spendButt" />Tak</li>
 					<li><input name="q12" type="radio" value="0" th:field="*{spending}" />Nie</li>
 				</ul>
 				<button id="submit">Zatwierdź</button>
@@ -59,6 +59,14 @@
 			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
 		</footer> -->
 	</div>
+	<script>
+		document.getElementById("typeButt").setAttribute("checked","checked")
+		document.getElementById("smButt").setAttribute("checked","checked")
+		document.getElementById("ageButt").setAttribute("checked","checked")
+		document.getElementById("timeButt").setAttribute("checked","checked")
+		document.getElementById("incrButt").setAttribute("checked","checked")
+		document.getElementById("spendButt").setAttribute("checked","checked")
+	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/quiz.js"></script>
 </body>

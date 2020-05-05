@@ -18,24 +18,24 @@
 			<form class="questionForm" id="q24" data-question="24" th:action="@{/add_social}" th:object="${social_life}" method="post">
 			<h3>Czy osoby z Twojego najbliższego otoczenia skarżą się, że zbyt dużo czasu poświęcasz na gry komputerowe?</h3>
 			<ul>
-				<li><input name="q24" type="radio" value="1" th:field="*{friends_complaining}" checked="checked" />Tak</li>
+				<li><input name="q24" type="radio" value="1" th:field="*{friends_complaining}"  id = "compButt" />Tak</li>
 				<li><input name="q24" type="radio" value="0" th:field="*{friends_complaining}" />Nie</li>
 			</ul>
 				<h3>Czy łatwiej jest Tobie nawiązywać nowe znajomości w grach niż w świecie rzeczywistym? </h3>
 				<ul>
-					<li><input name="q21" type="radio" value="1" th:field="*{game_friend_easier}" checked="checked"/>Tak</li>
+					<li><input name="q21" type="radio" value="1" th:field="*{game_friend_easier}"  id = "easierButt"/>Tak</li>
 					<li><input name="q21" type="radio" value="0" th:field="*{game_friend_easier}" />Nie</li>
 				</ul>
 				<h3>Czym może być spowodowane łatwiejsze nawiązywanie znajomości w grach komputerowych? </h3>
 				<ul>
-					<li><input name="q26" type="radio" value="Nikt nie wie kim jestem" th:field="*{reasons_of_game_friends}" checked="checked" />Nikt nie wie kim jestem</li>
+					<li><input name="q26" type="radio" value="Nikt nie wie kim jestem" th:field="*{reasons_of_game_friends}"  id = "gameButt" />Nikt nie wie kim jestem</li>
 					<li><input name="q26" type="radio" value="Nie obchodzi mnie co o mnie pomysla" th:field="*{reasons_of_game_friends}"/>Nie obchodzi mnie co o mnie pomyślą</li>
 					<li><input name="q26" type="radio" value="Posiadam wspolny temat do rozmowy z innymi graczami" th:field="*{reasons_of_game_friends}"/>Posiadam wspólny temat do rozmowy z innymi graczami</li>
 					<li><input name="q26" type="radio" value="inne" th:field="*{reasons_of_game_friends}"/>Żadne z powyższych</li>
 				</ul>
 				<h3>Czy nawiązywanie znajomości w świecie rzeczywistym sprawia Tobie trudność? </h3>
 				<ul>
-					<li><input name="q27" type="radio" value="1" th:field="*{real_life_difficult}" checked="checked" />Tak</li>
+					<li><input name="q27" type="radio" value="1" th:field="*{real_life_difficult}"  id = "diffButt" />Tak</li>
 					<li><input name="q27" type="radio" value="0" th:field="*{real_life_difficult}"/>Nie</li>
 				</ul>
 				<button id="submit">Zatwierdź</button>
@@ -45,6 +45,12 @@
 			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
 		</footer> -->
 	</div>
+	<script>
+		document.getElementById("compButt").setAttribute("checked","checked")
+		document.getElementById("easierButt").setAttribute("checked","checked")
+		document.getElementById("gameButt").setAttribute("checked","checked")
+		document.getElementById("diffButt").setAttribute("checked","checked")
+	</script>
 	<script src="js/jquery.js"></script>
 	<script src="js/quiz.js"></script>
 </body>
