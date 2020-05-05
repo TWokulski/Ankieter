@@ -29,7 +29,7 @@ public class QA_Api {
     private SocialRepository socialRepository;
 
     private RespondentDTO respondentDTO = new RespondentDTO();
-    private GameDTO gameDTO;
+    private GameDTO gameDTO = new GameDTO();
 
 
     private final Logger logger = LoggerFactory.getLogger(QA_Api.class);
