@@ -25,11 +25,11 @@ public class Game {
     private boolean spending;
 
     @OneToOne(mappedBy = "game", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Feelings feelings;
 
     @OneToOne(mappedBy = "game", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Money money;
 
 

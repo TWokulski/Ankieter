@@ -20,19 +20,19 @@ public class Respondent {
     private boolean playing_games;
 
     @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Game game;
 
     @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Addiction addiction;
 
     @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Degrees degrees;
 
     @OneToOne(mappedBy = "respondent", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Social_life social_life;
 
 
