@@ -3,49 +3,61 @@
 <head>
 	<title>Ankieta</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootsrtap.min.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  
 </head>
 
 <body>
-	<header>
-		<h3>Ocena uzależnienia od gier komputerowych wśród studentów ETI </h3>
-	</header>
-	<div class="container1">
-		
-		<main>
-				<form class="questionForm" id="q15" data-question="15" th:action="@{/add_addiction}" th:object="${addiction}" method="post">
-					<h3>Czy uważasz, że gry komputerowe moga uzależniać ?</h3>
-					<ul>
-						<li><input name="q15" type="radio" value="1" id = "canButt" th:field="*{awareness_of_addiction}" />Tak</li>
-						<li><input name="q15" type="radio" value="0" th:field="*{awareness_of_addiction}" />Nie</li>
-					</ul>
-					<h3>Co uważasz jako określenie uzależneinia od gier komputerowych?</h3>
-					<ul>
-						<li><input name="q16" type="radio" value="Wlaczanie komputera odrazu po przebudzeniu" id = "addictButt"  th:field="*{what_is_game_addiction}"/>Włączanie komputera odrazu po przebudzeniu w celu gry.</li>
-						<li><input name="q16" type="radio" value="Brak zainteresowania otaczajacym swiatem rzeczywistym" th:field="*{what_is_game_addiction}"/>Brak zainteresowania otaczającym światem rzeczywistym</li>
-						<li><input name="q16" type="radio" value="potrzeby dostepu do komputera" th:field="*{what_is_game_addiction}"/>Lompulsywne, odczuwnie silnej i nieprzerwanej potrzeby dostępu do komputera oraz Internetu</li>
-						<li><input name="q16" type="radio" value="Odczuwanie niepokoju w chwili braku dostepu do komputera" th:field="*{what_is_game_addiction}"/>Odczuwanie niepokoju w chwili braku dostępu do komputera.</li>
-					</ul>
-					<h3>Czy uważasz, że granie w gry jest równoznaczne z utratą czasu?</h3>
-					<ul>
-						<li><input name="q30" type="radio" value="1" id = "timeButt"  th:field="*{waste_of_time}"/>Tak</li>
-						<li><input name="q30" type="radio" value="0" th:field="*{waste_of_time}" />Nie</li>
-					</ul>
-					<button id="submit">Zatwierdź</button>
-
-			</form>
-		</main>
-		<!-- <footer>
-			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
-		</footer> -->
-	</div>
+	<main>
+	  <section class="ankieta">
+		<div class="container">
+			<header>
+				<div class="top">
+				  <h2>Ocena uzależnienia od gier komputerowych wśród studentów ETI</h2> 
+				  </div>
+			</header>
+			  <div class="row">
+				<div class="col-12">		
+				  <div class ="container1">	
+					<form class="questionForm" id="q15" data-question="15" th:action="@{/add_addiction}" th:object="${addiction}" method="post">
+						<h3>Czy uważasz, że gry komputerowe moga uzależniać ?</h3>
+						<ul>
+							<li><input name="q15" type="radio" value="1" id = "canButt" th:field="*{awareness_of_addiction}" />Tak</li>
+							<li><input name="q15" type="radio" value="0" th:field="*{awareness_of_addiction}" />Nie</li>
+						</ul>
+						<h3>Co uważasz jako określenie uzależneinia od gier komputerowych?</h3>
+						<ul>
+							<li><input name="q16" type="radio" value="Wlaczanie komputera odrazu po przebudzeniu" id = "addictButt"  th:field="*{what_is_game_addiction}"/>Włączanie komputera odrazu po przebudzeniu w celu gry.</li>
+							<li><input name="q16" type="radio" value="Brak zainteresowania otaczajacym swiatem rzeczywistym" th:field="*{what_is_game_addiction}"/>Brak zainteresowania otaczającym światem rzeczywistym</li>
+							<li><input name="q16" type="radio" value="potrzeby dostepu do komputera" th:field="*{what_is_game_addiction}"/>Lompulsywne, odczuwnie silnej i nieprzerwanej potrzeby dostępu do komputera oraz Internetu</li>
+							<li><input name="q16" type="radio" value="Odczuwanie niepokoju w chwili braku dostepu do komputera" th:field="*{what_is_game_addiction}"/>Odczuwanie niepokoju w chwili braku dostępu do komputera.</li>
+						</ul>
+						<h3>Czy uważasz, że granie w gry jest równoznaczne z utratą czasu?</h3>
+						<ul>
+							<li><input name="q30" type="radio" value="1" id = "timeButt"  th:field="*{waste_of_time}"/>Tak</li>
+							<li><input name="q30" type="radio" value="0" th:field="*{waste_of_time}" />Nie</li>
+						</ul>
+						<button id="submit">Zatwierdź</button>
+					</form>
+				</div>  
+			</div>
+		  </div>		
+		</div>
+	  </section>
+	</main>
 	<script>
 		document.getElementById("canButt").setAttribute("checked","checked")
 		document.getElementById("addictButt").setAttribute("checked","checked")
 		document.getElementById("timeButt").setAttribute("checked","checked")
 	</script>
-	<script src="js/jquery.js"></script>
-	<script src="js/quiz.js"></script>
-</body>
-</html>
+	<script src="js.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="js/bootsrtap.min.js"></script>
+  </body>
+  <footer class="footer">© 2020 Krzysztof Wicki, Tomasz Gruzdzis</footer>
+  </html>

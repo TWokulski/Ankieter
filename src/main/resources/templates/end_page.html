@@ -3,43 +3,57 @@
 <head>
 	<title>Ankieta</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootsrtap.min.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  
 </head>
 
 <body>
-  <div class="sky-container">
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
+  <main>
+    <section class="ankieta">
+      <div class="container">
+        <div class="sky-container">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
 
-    <div id="three-container"></div>
-    
-</div>
-	<header>
-    <h3>Dzięki za wypełnienie ankiety! </h3>
- 
-  </header>
-  
-	<div class="container6">
-		
-		<main>
-                <h3>
+        </div>
+        <header>
+          <div class="top">
+            <h2>Dzięki za wypełnienie ankiety!</h2> 
+            </div>
+        </header>
+
+        
+        <div class="row">
+          <div class="col-12">		
+            <div class ="container1">	
+              <h3>
                 Gotowe!</br>
-                To już wszystko, jeżeli chcesz zobaczyć jak wypadasz na tle reszty studentów naciśnij na przycisk "Statystyki"</br>
-                Aby przejść do strony startowej wystarczy nacisnąć na przycisk "Powrót"</h3>
-
-                <button id="submit2" onclick="window.location.href='/'">Powrót</button>
-		</main>
-		
-    </div>
-    
-	<script src="js/jquery.js"></script>
-	<script src="js/quiz.js"></script>
+                To już wszystko, jeżeli chcesz zobaczyć jak wypadasz na tle reszty studentów naciśnij na przycisk "Statystyki".</br>
+                Aby przejść do strony startowej wystarczy nacisnąć na przycisk "Powrót".
+              
+              </h3>
+              <button class="button2" id="submit2" onclick="window.location.href='/'">Powrót</button>
+            </div>  
+          </div>
+          <div class="col-12"><br><br><br><br><br><br><br><br><br><br><br></div>
+        </div>		
+      </div>
+    </section>
+  </main>
+ 
+  <script src="js.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="js/bootsrtap.min.js"></script>
 </body>
+<footer class="footer">© 2020 Krzysztof Wicki, Tomasz Gruzdzis</footer>
 </html>

@@ -1,116 +1,63 @@
 
+html{
+	height: 100%;
+}
 
 body{
 	font-family:arial;
 	font-size:15px;
 	line-height: 1.6em;
 	background:#f4f4f4;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	
 }
+.container {
+
+	margin: 0 auto;
+	overflow: hidden;
+  }
+
+
+
+h3 {
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 10px;
+  }
 
 li{
 	list-style:none;
+	text-align: left;
+	padding-top: 2px;
 }
 
+.footer {
+	
+	padding: 1.5em;
+	margin-top: auto;
+	background-color: #efefef;
+	text-align: center;
+  }
 .container1{
-	height: 60%;
-    width : 50%;
-    background: #fff;
-    position: absolute;
-    top : 65%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-	inset 0 0 0 rgba(0,0,0,0.1);
-}
 
-.container2{
-	height: 60%;
-    width : 50%;
     background: #fff;
-    position: absolute;
-    top : 65%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    position: relative;
     border-radius : 10px;
     box-shadow: 0 0 25px rgba(0,0,0,0.1),
 	inset 0 0 0 rgba(0,0,0,0.1);
-}
-
-.container{
-	height: 60%;
-    width : 50%;
-    background: #fff;
-    position: absolute;
-    top : 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-	inset 0 0 0 rgba(0,0,0,0.1);
-}
-.container3{
-	height: 120%;
-    width : 50%;
-    background: #fff;
-    position: absolute;
-    top : 90%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-	inset 0 0 0 rgba(0,0,0,0.1);
-}
-.container4{
-	height: 50%;
-    width : 50%;
-    background: #fff;
-    position: absolute;
-    top : 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-	inset 0 0 0 rgba(0,0,0,0.1);
-}
-.container5{
-	height: 90%;
-    width : 50%;
-    background: #fff;
-    position: absolute;
-    top : 75%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-	inset 0 0 0 rgba(0,0,0,0.1);
-}
-.container6{
-	height: 35%;
-    width : 80%;
-    background: #fff;
-    position: absolute;
-    top : 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-	inset 0 0 0 rgba(0,0,0,0.1);
-}
-
-h3 {
 	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
 }
 
-.pull-left{
-	float:left;
-}
 
 
-header{
-	height: 5%;
-    width : 85%;
+
+
+.top{
+
     background: #4A148C;
     border-radius: 25px;
     color: #fff;
@@ -122,18 +69,6 @@ header{
 }
 
 
-
-footer{
-	background:#1f88f4;
-	color:#ffffff;
-	padding:5px 10px;
-	overflow:auto;
-	top:80%;
-	width:98%;
-	border-radius : 10px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.1),
-    inset 0 0 0 rgba(0,0,0,0.1);
-}
 
 button {
 	background-color: white;
@@ -147,30 +82,26 @@ button {
 	margin: 4px 10px;
 	transition-duration: 0.4s;
 	cursor: pointer;
-	position: absolute;
-    bottom: 0;
+	position: relative;
+	bottom: 0;
+	
   }
+  
 
 
 button:hover {background-color: #e7e7e7;}
 
-@media only screen and (max-width: 900px){
-	.container{
-		width:90%;
-	}
-}
 
 .sky-container {
-	width: 100%;
-	height: 100%;	
 	transform: rotateZ(45deg);
+	widows: 100%;
+	height: 100%;
   }
   
   
   .star {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+
 	height: 2px;
 	background: linear-gradient(-45deg, #5f91ff, rgba(0, 0, 255, 0));
 	filter: drop-shadow(0 0 6px #699bff);
@@ -194,16 +125,16 @@ button:hover {background-color: #e7e7e7;}
   }
   
   .star:nth-child(1) {
-	top: calc(50% - 200px);
-	left: calc(50% - 300px);
-	animation-delay: 650ms;
+	top: calc(50% + 500px);
+	left: calc(40% - 120px);
+	animation-delay: 800ms;
   }
   .star:nth-child(1)::before, .star:nth-child(1)::after {
-	animation-delay: 650ms;
+	animation-delay: 800ms;
   }
   
   .star:nth-child(2) {
-	top: calc(50% - -50px);
+	top: calc(50% - -150px);
 	left: calc(50% - 190px);
 	animation-delay: 150ms;
   }
@@ -246,15 +177,15 @@ button:hover {background-color: #e7e7e7;}
   .star:nth-child(6)::before, .star:nth-child(5)::after {
 	animation-delay: 600ms;
   }
-
   .star:nth-child(7) {
-	top: calc(50% - -690px);
-	left: calc(50% - 270px);
-	animation-delay: 800ms;
+	top: calc(50% - 300px);
+	left: calc(50% - 10px);
+	animation-delay: 600ms;
   }
-  .star:nth-child(7)::before, .star:nth-child(5)::after {
-	animation-delay: 800ms;
+  .star:nth-child(6)::before, .star:nth-child(5)::after {
+	animation-delay: 600ms;
   }
+
   
   
   

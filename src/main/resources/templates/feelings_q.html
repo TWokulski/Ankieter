@@ -3,66 +3,74 @@
 <head>
 	<title>Ankieta</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootsrtap.min.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  
 </head>
 
 <body>
-	<header>
-		<h3>Ocena uzależnienia od gier komputerowych wśród studentów ETI </h3>
-	</header>
-	<div class="container3">
-		
-		<main>
-
-			<form class="questionForm" id="q17" data-question="17" th:action="@{/add_feelings}" th:object="${feelings}" method="post">
-				<h3>Czy odczuwasz złość gdy nie może przejść danego poziomu? </h3>
-				<ul>
-					<li><input name="q17" type="radio" value="1"  id = "levButt" th:field="*{anger_when_leveling}"/>Tak</li>
-					<li><input name="q17" type="radio" value="0" th:field="*{anger_when_leveling}" />Nie</li>
-				</ul>
-				<h3>Czy często myślisz o o tym, co dzieje się w sieci lub w ulubionej grze komputerowej, np. w nocy, w pracy, na uczelni?</h3>
-				<ul>
-					<li><input name="q18" type="radio" value="1"  id = "dreamButt" th:field="*{thoughts_about_game}"/>Tak</li>
-					<li><input name="q18" type="radio" value="0" th:field="*{thoughts_about_game}" />Nie</li>
-				</ul>
-				<h3>Czy odczuwasz złość gdy przegrywa na innego gracza? </h3>
-				<ul>
-					<li><input name="q19" type="radio" value="1"  id = "angerButt" th:field="*{anger_when_loosing}"/>Tak</li>
-					<li><input name="q19" type="radio" value="0" th:field="*{anger_when_loosing}" />Nie</li>
-				</ul>
-				<button id="submit">Zatwierdź</button>
-				<h3>Czy traci Pan/Pan poczucie czasu grając w gry? </h3>
-				<ul>
-					<li><input name="q20" type="radio" value="1"  id = "goodTButt" th:field="*{waste_of_good_timing}"/>Tak</li>
-					<li><input name="q20" type="radio" value="0" th:field="*{waste_of_good_timing}" />Nie</li>
-				</ul>
-				<h3>Czy Pana/Pani zdaniem długie siedzenie przed komputerem ma negatywny wpływ na Pańskie samopoczucie ?</h3>
-				<ul>
-					<li><input name="q21" type="radio" value="1"  id = "feelButt" th:field="*{health_issue}"/>Tak</li>
-					<li><input name="q21" type="radio" value="0" th:field="*{health_issue}" />Nie</li>
-				</ul>
-				<h3>Które z tych symptomów jesteś w stanie zaobserwować u siebie siedząc długo przed komputerem?</h3>
-				<ul>
-					<li><input name="q22" type="radio" value="Bol glowy"  id = "sympButt" th:field="*{symptoms}"/>Bóle głowy</li>
-					<li><input name="q22" type="radio" value="Lzawienie oczu" th:field="*{symptoms}" />Łzawienie z oczu</li>
-					<li><input name="q22" type="radio" value="Rozdraznienie" th:field="*{symptoms}" />Rozdrażnienie</li>
-					<li><input name="q22" type="radio" value="Zmeczenie" th:field="*{symptoms}" />Zmęczenie</li>
-					<li><input name="q22" type="radio" value="brak" th:field="*{symptoms}" />Żadne z powyższych</li>
-				</ul>
-					<h3>Czy w przeciągu ostatnich lat zauważyłeś/zuważyłaś zmniejszenie ilości zainteresowań?</h3>
-					<ul>
-						<li><input name="q29" type="radio" value="1"  id = "hobbiesButt" th:field="*{loss_of_hobbies}"/>Tak</li>
-						<li><input name="q29" type="radio" value="0" th:field="*{loss_of_hobbies}" />Nie</li>
-					</ul>
-				<button id="submit">Zatwierdź</button>
-			</form>
-
-		</main>
-		<!-- <footer>
-			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
-		</footer> -->
-	</div>
+	<main>
+	  <section class="ankieta">
+		<div class="container">
+			<header>
+				<div class="top">
+				  <h2>Ocena uzależnienia od gier komputerowych wśród studentów ETI</h2> 
+				  </div>
+			</header>
+			  <div class="row">
+				<div class="col-12">		
+				  <div class ="container1">	
+					<form class="questionForm" id="q17" data-question="17" th:action="@{/add_feelings}" th:object="${feelings}" method="post">
+						<h3>Czy odczuwasz złość gdy nie może przejść danego poziomu? </h3>
+						<ul>
+							<li><input name="q17" type="radio" value="1"  id = "levButt" th:field="*{anger_when_leveling}"/>Tak</li>
+							<li><input name="q17" type="radio" value="0" th:field="*{anger_when_leveling}" />Nie</li>
+						</ul>
+						<h3>Czy często myślisz o o tym, co dzieje się w sieci lub w ulubionej grze komputerowej, np. w nocy, w pracy, na uczelni?</h3>
+						<ul>
+							<li><input name="q18" type="radio" value="1"  id = "dreamButt" th:field="*{thoughts_about_game}"/>Tak</li>
+							<li><input name="q18" type="radio" value="0" th:field="*{thoughts_about_game}" />Nie</li>
+						</ul>
+						<h3>Czy odczuwasz złość gdy przegrywa na innego gracza? </h3>
+						<ul>
+							<li><input name="q19" type="radio" value="1"  id = "angerButt" th:field="*{anger_when_loosing}"/>Tak</li>
+							<li><input name="q19" type="radio" value="0" th:field="*{anger_when_loosing}" />Nie</li>
+						</ul>
+						<button id="submit">Zatwierdź</button>
+						<h3>Czy traci Pan/Pan poczucie czasu grając w gry? </h3>
+						<ul>
+							<li><input name="q20" type="radio" value="1"  id = "goodTButt" th:field="*{waste_of_good_timing}"/>Tak</li>
+							<li><input name="q20" type="radio" value="0" th:field="*{waste_of_good_timing}" />Nie</li>
+						</ul>
+						<h3>Czy Pana/Pani zdaniem długie siedzenie przed komputerem ma negatywny wpływ na Pańskie samopoczucie ?</h3>
+						<ul>
+							<li><input name="q21" type="radio" value="1"  id = "feelButt" th:field="*{health_issue}"/>Tak</li>
+							<li><input name="q21" type="radio" value="0" th:field="*{health_issue}" />Nie</li>
+						</ul>
+						<h3>Które z tych symptomów jesteś w stanie zaobserwować u siebie siedząc długo przed komputerem?</h3>
+						<ul>
+							<li><input name="q22" type="radio" value="Bol glowy"  id = "sympButt" th:field="*{symptoms}"/>Bóle głowy</li>
+							<li><input name="q22" type="radio" value="Lzawienie oczu" th:field="*{symptoms}" />Łzawienie z oczu</li>
+							<li><input name="q22" type="radio" value="Rozdraznienie" th:field="*{symptoms}" />Rozdrażnienie</li>
+							<li><input name="q22" type="radio" value="Zmeczenie" th:field="*{symptoms}" />Zmęczenie</li>
+							<li><input name="q22" type="radio" value="brak" th:field="*{symptoms}" />Żadne z powyższych</li>
+						</ul>
+							<h3>Czy w przeciągu ostatnich lat zauważyłeś/zuważyłaś zmniejszenie ilości zainteresowań?</h3>
+							<ul>
+								<li><input name="q29" type="radio" value="1"  id = "hobbiesButt" th:field="*{loss_of_hobbies}"/>Tak</li>
+								<li><input name="q29" type="radio" value="0" th:field="*{loss_of_hobbies}" />Nie</li>
+							</ul>
+						<button id="submit">Zatwierdź</button>
+					</form>
+				</div>  
+			</div>
+		  </div>		
+		</div>
+	  </section>
+	</main>
 	<script>
 		document.getElementById("levButt").setAttribute("checked","checked")
 		document.getElementById("dreamButt").setAttribute("checked","checked")
@@ -71,7 +79,10 @@
 		document.getElementById("sympButt").setAttribute("checked","checked")
 		document.getElementById("hobbiesButt").setAttribute("checked","checked")
 	</script>
-	<script src="js/jquery.js"></script>
-	<script src="js/quiz.js"></script>
-</body>
-</html>
+	<script src="js.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="js/bootsrtap.min.js"></script>
+  </body>
+  <footer class="footer">© 2020 Krzysztof Wicki, Tomasz Gruzdzis</footer>
+  </html>

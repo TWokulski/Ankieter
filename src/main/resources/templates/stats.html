@@ -3,41 +3,117 @@
 <head>
 	<title>Ankieta</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootsrtap.min.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  
 </head>
 
 <body>
-  <div class="sky-container">
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
+  <main>
+    <section class="ankieta">
+      <div class="container">
+        <div class="sky-container">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
 
-    <div id="three-container"></div>
-    
-</div>
-	<header>
-    <h3>Statystyki </h3>
- 
-  </header>
-  
-	<div class="container6">
-		
-		<main>
-			<h3>
-                WYKRES<br>
-                
+        </div>
+        <header>
+          <div class="top">
+            <h2>Statystyki</h2> 
+            </div>
+        </header>
+
+        
+        <div class="row">
+          <div class="col-12">		
+            <div class ="container1">	
+              <h3>
+                <canvas id="myChart"></canvas>
                 <button id="submit">Powrót</button>
-		</main>
-		
-    </div>
-    
-	<script src="js/jquery.js"></script>
-	<script src="js/quiz.js"></script>
+              </h3>
+            </div>  
+          </div>
+          <div class="col-12"><br><br><br><br><br><br><br><br><br><br><br></div>
+        </div>		
+      </div>
+    </section>
+  </main>
+  <script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    // Global Options
+    Chart.defaults.global.defaultFontFamily = 'Lato';
+    Chart.defaults.global.defaultFontSize = 18;
+    Chart.defaults.global.defaultFontColor = '#777';
+
+    let massPopChart = new Chart(myChart, {
+      type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
+      data:{
+        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        datasets:[{
+          label:'Population',
+          data:[
+            617594,
+            181045,
+            153060,
+            106519,
+            105162,
+            95072
+          ],
+          //backgroundColor:'green',
+          backgroundColor:[
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)',
+            'rgba(255, 159, 64, 0.6)',
+            'rgba(255, 99, 132, 0.6)'
+          ],
+          borderWidth:1,
+          borderColor:'#777',
+          hoverBorderWidth:3,
+          hoverBorderColor:'#000'
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Largest Cities In Massachusetts',
+          fontSize:25
+        },
+        legend:{
+          display:true,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        layout:{
+          padding:{
+            left:50,
+            right:0,
+            bottom:0,
+            top:0
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+  </script>
+  <script src="js.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="js/bootsrtap.min.js"></script>
 </body>
 </html>

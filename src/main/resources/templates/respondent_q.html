@@ -3,55 +3,65 @@
 <head>
 	<title>Ankieta</title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="style.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootsrtap.min.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  
 </head>
 
 <body>
-	<header>
-		<h3>Ocena uzależnienia od gier komputerowych wśród studentów ETI </h3>
-	</header>
-	<div class="container5">
+	<main>
+	  <section class="ankieta">
+		<div class="container">
+			<header>
+				<div class="top">
+				  <h2>Ocena uzależnienia od gier komputerowych wśród studentów ETI</h2> 
+				  </div>
+			</header>
+			  <div class="row">
+				<div class="col-12">		
+				  <div class ="container1">	
+					<form class="questionForm" id="q1" data-question="1" th:action="@{/add_respondent}" th:object="${respondent}" method="post">
+						<h3>Płeć.</h3>
+						<ul>
+							<li><input name="q1" type="radio" value="1" id = "sexButt"  th:field="*{sex}"/>Kobieta</li>
+							<li><input name="q1" type="radio" value="0" th:field="*{sex}" />Mężczyzna</li>
+						</ul>
+						<h3>Status. </h3>
+						<ul>
+							<li><input name="q2" type="radio" value="Wolny" id = "statusButt"  th:field="*{status}" />Wolny/Wolna</li>
+							<li><input name="q2" type="radio" value="Nie wolny" th:field="*{status}" />W związku</li>
+						</ul>
+						<h3>Mieszkasz z..</h3>
+						<ul>
+							<li><input name="q3" type="radio" value="Sam" id = "livingButt" th:field="*{living_with}" />Sam/a</li>
+							<li><input name="q3" type="radio" value="Rodzice" th:field="*{living_with}" />Z rodzicami</li>
+							<li><input name="q3" type="radio" value="Lokator" th:field="*{living_with}" />Z lokatorem/lokatorką</li>
+							<li><input name="q3" type="radio" value="Partner" th:field="*{living_with}" />Z partnerem/partnerką</li>
+						</ul>
+						<h3>Stopień studiów.</h3>
+						<ul>
+							<li><input name="q4" type="radio" value="Pierwszy" id = "degreeButt"  th:field="*{study_degree}" />Pierwszy</li>
+							<li><input name="q4" type="radio" value="Drugi" th:field="*{study_degree}" />Drugi</li>
+						</ul>
+						<h3>Czy grasz w gry komputerowe?</h3>
+						<ul>
+							<li><input name="q5" type="radio" value="1" id = "playingButt" th:field="*{playing_games}"/>Tak</li>
+							<li><input name="q5" type="radio" value="0" th:field="*{playing_games}" />Nie</li>
+						</ul>
+						<button id="submit">Zatwierdź</button>
 		
-		<main>
-			<form class="questionForm" id="q1" data-question="1" th:action="@{/add_respondent}" th:object="${respondent}" method="post">
-				<h3>Płeć.</h3>
-				<ul>
-					<li><input name="q1" type="radio" value="1" id = "sexButt"  th:field="*{sex}"/>Kobieta</li>
-					<li><input name="q1" type="radio" value="0" th:field="*{sex}" />Mężczyzna</li>
-				</ul>
-				<h3>Status. </h3>
-				<ul>
-					<li><input name="q2" type="radio" value="Wolny" id = "statusButt"  th:field="*{status}" />Wolny/Wolna</li>
-					<li><input name="q2" type="radio" value="Nie wolny" th:field="*{status}" />W związku</li>
-				</ul>
-				<h3>Mieszkasz z..</h3>
-				<ul>
-					<li><input name="q3" type="radio" value="Sam" id = "livingButt" th:field="*{living_with}" />Sam/a</li>
-					<li><input name="q3" type="radio" value="Rodzice" th:field="*{living_with}" />Z rodzicami</li>
-					<li><input name="q3" type="radio" value="Lokator" th:field="*{living_with}" />Z lokatorem/lokatorką</li>
-					<li><input name="q3" type="radio" value="Partner" th:field="*{living_with}" />Z partnerem/partnerką</li>
-				</ul>
-				<h3>Stopień studiów.</h3>
-				<ul>
-					<li><input name="q4" type="radio" value="Pierwszy" id = "degreeButt"  th:field="*{study_degree}" />Pierwszy</li>
-					<li><input name="q4" type="radio" value="Drugi" th:field="*{study_degree}" />Drugi</li>
-				</ul>
-				<h3>Czy grasz w gry komputerowe?</h3>
-				<ul>
-					<li><input name="q5" type="radio" value="1" id = "playingButt" th:field="*{playing_games}"/>Tak</li>
-					<li><input name="q5" type="radio" value="0" th:field="*{playing_games}" />Nie</li>
-				</ul>
-				<button id="submit">Zatwierdź</button>
-
-			<div id="results"></div>
-			<br>
-			</form>
-		</main>
-		<!-- <footer>
-			<span class="a-t">Odpoweidzi : <span class="played" id="played">0</span> / <span id="total"></span></span>
-		</footer> -->
-	</div>
+					<div id="results"></div>
+					<br>
+					</form>
+				</div>  
+			</div>
+		  </div>		
+		</div>
+	  </section>
+	</main>
 	<script>
 		document.getElementById("sexButt").setAttribute("checked","checked")
 		document.getElementById("statusButt").setAttribute("checked","checked")
@@ -60,7 +70,10 @@
 		document.getElementById("playingButt").setAttribute("checked","checked")
 	</script>
 
-	<script src="js/jquery.js"></script>
-	<script src="js/quiz.js"></script>
-</body>
-</html>
+	<script src="js.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="js/bootsrtap.min.js"></script>
+  </body>
+  <footer class="footer">© 2020 Krzysztof Wicki, Tomasz Gruzdzis</footer>
+  </html>
