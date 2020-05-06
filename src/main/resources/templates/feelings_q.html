@@ -24,7 +24,7 @@
 				<div class="col-12">		
 				  <div class ="container1">	
 					<form class="questionForm" id="q17" data-question="17" th:action="@{/add_feelings}" th:object="${feelings}" method="post">
-						<h3>Czy odczuwasz złość gdy nie może przejść danego poziomu? </h3>
+						<h3>Czy odczuwasz złość gdy nie możesz przejść danego poziomu? </h3>
 						<ul>
 							<li><input name="q17" type="radio" value="1"  id = "levButt" th:field="*{anger_when_leveling}"/>Tak</li>
 							<li><input name="q17" type="radio" value="0" th:field="*{anger_when_leveling}" />Nie</li>
@@ -34,7 +34,7 @@
 							<li><input name="q18" type="radio" value="1"  id = "dreamButt" th:field="*{thoughts_about_game}"/>Tak</li>
 							<li><input name="q18" type="radio" value="0" th:field="*{thoughts_about_game}" />Nie</li>
 						</ul>
-						<h3>Czy odczuwasz złość gdy przegrywa na innego gracza? </h3>
+						<h3>Czy odczuwasz złość gdy przegrywasz na innego gracza? </h3>
 						<ul>
 							<li><input name="q19" type="radio" value="1"  id = "angerButt" th:field="*{anger_when_loosing}"/>Tak</li>
 							<li><input name="q19" type="radio" value="0" th:field="*{anger_when_loosing}" />Nie</li>
