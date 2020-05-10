@@ -30,30 +30,17 @@ public class Stats_Api {
         int gamers = service.findNumberOfGamers();
         int nonGamers = service.findNumberOfNonGamers();
 
-        logger.info("logg przed spendings" + nonGamers);
-        int spending = service.findNumberOfSpendingPlayers();
-        int nonSpending = service.findNumberOfNonSpendingPlayers();
-
-        logger.info("logg przed play" + female);
-        int [] play_time = service.findNumbersOfPlayTime();
-
-
-
-        logger.info("wynik z serwisu: " + play_time[0] + " " + play_time[4]);
+       
 
         model.addAttribute("Kobiety", female);
         model.addAttribute("Mezczyzni", male);
 
-        model.addAttribute("ponizej_1h", play_time[0]);
-        model.addAttribute("pomiedzy_1_2h", play_time[1]);
-        model.addAttribute("pomiedzy_2_5h", play_time[2]);
-        model.addAttribute("powyzej_5h", play_time[3]);
+
 
         model.addAttribute("Gracze", gamers);
         model.addAttribute("Nie_grajacy", nonGamers);
 
-        model.addAttribute("Wydajacy", spending);
-        model.addAttribute("Nie_wydajacy", nonSpending);
+
 
         //logger.info("wynik z serwisu: " + service.findNumberOfRespondents());
        // logger.info("liczba wydajacych pieniazki graczy: " + service.findNumberOfSpendingPlayers());

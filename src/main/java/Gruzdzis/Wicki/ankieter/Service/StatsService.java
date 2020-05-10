@@ -7,9 +7,6 @@ import Gruzdzis.Wicki.ankieter.Repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +22,6 @@ public class StatsService {
         this.respondentRepository = respondentRepository;
         this.gameRepository = gameRepository;
     }
-
 
     private List<RespondentForStatsDTO> findAllRespondents(){
         return respondentRepository
