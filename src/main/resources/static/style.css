@@ -294,13 +294,7 @@ button:hover {background-color: #e7e7e7;}
 	-webkit-box-direction: normal;
 			flex-direction: row;
   }
-  @media (max-width: 500px) {
-	.pie-charts {
-	  -webkit-box-orient: vertical;
-	  -webkit-box-direction: normal;
-			  flex-direction: column;
-	}
-  }
+ 
   
   
   
