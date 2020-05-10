@@ -26,9 +26,6 @@ public class Stats_Api {
         int male = service.findNumberOfMaleRespondents();
         int female = service.findNumberOfFemaleRespondents();
 
-        logger.info("logg przed play" + female);
-        int [] play_time = service.findNumbersOfPlayTime();
-
         logger.info("logg przed gamers");
         int gamers = service.findNumberOfGamers();
         int nonGamers = service.findNumberOfNonGamers();
@@ -36,6 +33,11 @@ public class Stats_Api {
         logger.info("logg przed spendings" + nonGamers);
         int spending = service.findNumberOfSpendingPlayers();
         int nonSpending = service.findNumberOfNonSpendingPlayers();
+
+        logger.info("logg przed play" + female);
+        int [] play_time = service.findNumbersOfPlayTime();
+
+
 
         logger.info("wynik z serwisu: " + play_time[0] + " " + play_time[4]);
 

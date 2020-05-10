@@ -88,7 +88,7 @@ public class StatsService {
     }
 
 
-    public int[] findNumbersOfPlayTime(){
+    public int [] findNumbersOfPlayTime(){
         int under_1h = 0;
         int between_1_2h = 0;
         int between_2_5h = 0;
