@@ -24,6 +24,8 @@ public class Stats_Api {
         model.addAttribute("female", "10");
         model.addAttribute("male", "20");
         logger.info("wynik z serwisu: " + service.findNumberOfRespondents());
+        logger.info("liczba wydajacych pieniazki graczy: " + service.findNumberOfSpendingPlayers());
+        logger.info("liczba wydajacych pieniazki graczy ale z repo: " + service.findNumberOfSpendingPlayersFormMoneyRepo());
         return "stats";
     }
 }
