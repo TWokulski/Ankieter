@@ -45,6 +45,10 @@ public class StatsService {
         return respondentRepository.findAll().size();
     }
 
+    public int findSizeOfGameRepo() {
+        return gameRepository.findAll().size();
+    }
+
 
     public int findNumberOfGamers() {
         int numberOfGamers = 0;
@@ -73,7 +77,7 @@ public class StatsService {
         int numberOfSpendingGamers = 0;
         List<GameForStatsDTO> gameList = findAllGamers();
 
-        for(int i = 0; i < findNumberOfGamers2(); i++ ) {
+        for(int i = 0; i < findSizeOfGameRepo(); i++ ) {
 
             if(gameList.get(i).isSpending())
                 numberOfSpendingGamers++;
@@ -96,7 +100,7 @@ public class StatsService {
         List<GameForStatsDTO> gameList = findAllGamers();
         logger.info("przed forem");
 
-        for(int i = 0; i < findNumberOfGamers(); i++ ) {
+        for(int i = 0; i < findSizeOfGameRepo(); i++ ) {
 
             if(gameList.get(i).getGaming_time().equals("Ponizej 1h")) {
                 logger.info("wartosc 1");
