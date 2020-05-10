@@ -22,24 +22,17 @@ public class Stats_Api {
     @RequestMapping("/stats")
     public String show_stats(Model model) {
 
-        logger.info("logg przed male");
         int male = service.findNumberOfMaleRespondents();
         int female = service.findNumberOfFemaleRespondents();
 
-        logger.info("logg przed gamers");
         int gamers = service.findNumberOfGamers();
         int nonGamers = service.findNumberOfNonGamers();
 
-        logger.info("logg przed spendings" + nonGamers);
         int spending = service.findNumberOfSpendingPlayers();
         int nonSpending = service.findNumberOfNonSpendingPlayers();
 
-        logger.info("logg przed play" + female);
         int [] play_time = service.findNumbersOfPlayTime();
 
-
-
-        logger.info("wynik z serwisu: " + play_time[0] + " " + play_time[3]);
 
         model.addAttribute("Kobiety", female);
         model.addAttribute("Mezczyzni", male);
@@ -55,8 +48,6 @@ public class Stats_Api {
         model.addAttribute("Wydajacy", spending);
         model.addAttribute("Nie_wydajacy", nonSpending);
 
-        //logger.info("wynik z serwisu: " + service.findNumberOfRespondents());
-       // logger.info("liczba wydajacych pieniazki graczy: " + service.findNumberOfSpendingPlayers());
 
         return "stats";
     }
