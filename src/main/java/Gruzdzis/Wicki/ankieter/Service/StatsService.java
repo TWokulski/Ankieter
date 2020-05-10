@@ -1,8 +1,11 @@
 package Gruzdzis.Wicki.ankieter.Service;
 
+import Gruzdzis.Wicki.ankieter.Api.Stats_Api;
 import Gruzdzis.Wicki.ankieter.DTO.GameForStatsDTO;
 import Gruzdzis.Wicki.ankieter.DTO.RespondentForStatsDTO;
 import Gruzdzis.Wicki.ankieter.Repository.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Array;
@@ -15,6 +18,8 @@ public class StatsService {
 
     private RespondentRepository respondentRepository;
     private GameRepository gameRepository;
+
+    private final Logger logger = LoggerFactory.getLogger(StatsService.class);
 
     public StatsService(RespondentRepository respondentRepository, GameRepository gameRepository) {
         this.respondentRepository = respondentRepository;
@@ -104,6 +109,12 @@ public class StatsService {
             else
                 over_5h++;
         }
+
+        logger.info("wartosc " + under_1h);
+        logger.info("wartosc " + between_1_2h);
+        logger.info("wartosc " + between_2_5h);
+        logger.info("wartosc " + over_5h);
+
         int [] numbers = {under_1h, between_1_2h, between_2_5h, over_5h };
 
         return numbers;
