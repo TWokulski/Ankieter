@@ -1,5 +1,6 @@
 package Gruzdzis.Wicki.ankieter.Service;
 
+import Gruzdzis.Wicki.ankieter.DTO.GameForStatsDTO;
 import Gruzdzis.Wicki.ankieter.Repository.*;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +32,22 @@ public class StatsService {
         return moneyRepository.findAll().size();
     }
 
+    public List<GameForStatsDTO> findAllGamers(){
+
+        return gameRepository
+                .findAll()
+                .stream()
+                .map(GameForStatsDTO::new)
+                .collect(Collectors.toList());
+    }
+
     public int findNumberOfSpendingPlayers(){
         int numberOfSpendingGamers = 0;
-        for(Long i = 1L; i<= findNumberOfGamers(); i++ ) {
+        List<GameForStatsDTO> gameList = findAllGamers();
 
-            if(gameRepository.findById(i).get().isSpending())
+        for(int i = 0; i < findNumberOfGamers(); i++ ) {
+
+            if(gameList.get(i).isSpending())
                 numberOfSpendingGamers++;
 
         }
