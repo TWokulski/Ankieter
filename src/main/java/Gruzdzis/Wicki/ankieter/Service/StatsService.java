@@ -59,6 +59,10 @@ public class StatsService {
         return numberOfGamers;
     }
 
+    public int findNumberOfGamers2() {
+        return gameRepository.findAll().size();
+    }
+
 
     public int findNumberOfNonGamers(){
         return (findNumberOfRespondents() - findNumberOfGamers());
@@ -69,7 +73,7 @@ public class StatsService {
         int numberOfSpendingGamers = 0;
         List<GameForStatsDTO> gameList = findAllGamers();
 
-        for(int i = 0; i < findNumberOfGamers(); i++ ) {
+        for(int i = 0; i < findNumberOfGamers2(); i++ ) {
 
             if(gameList.get(i).isSpending())
                 numberOfSpendingGamers++;
