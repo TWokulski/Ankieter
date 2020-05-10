@@ -33,6 +33,8 @@ public class Stats_Api {
         int spending = service.findNumberOfSpendingPlayers();
         int nonSpending = service.findNumberOfNonSpendingPlayers();
 
+        logger.info("wynik z serwisu: " + play_time[0] + " " + play_time[4]);
+
         model.addAttribute("Kobiety", female);
         model.addAttribute("Mezczyzni", male);
 
