@@ -33,7 +33,7 @@ public class StatsService {
 
     public int findNumberOfSpendingPlayers(){
         int numberOfSpendingGamers = 0;
-        for(Long i = 0L; i<= findNumberOfGamers(); i++ ) {
+        for(Long i = 1L; i<= findNumberOfGamers(); i++ ) {
 
             if(gameRepository.findById(i).get().isSpending())
                 numberOfSpendingGamers++;
