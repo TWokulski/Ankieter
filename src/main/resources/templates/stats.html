@@ -39,14 +39,22 @@
                 <canvas id="myChart"></canvas>
                 <button id="submit">Powrót</button>
               </h3>
-            </div>  
+            </div>
           </div>
           <div class="col-12"><br><br><br><br><br><br><br><br><br><br><br></div>
         </div>		
       </div>
     </section>
   </main>
-  <script>
+  <script th:inline = "javascript">
+
+  /*<![CDATA[*/
+  var under_1h = /*[[${ponizej_1h}]]*/ "10";
+  var between_2h = /*[[${pomiedzy_1_2h}]]*/ "10";
+  var between_5h = /*[[${pomiedzy_2_5h}]]*/ "10";
+  var over_2h = /*[[${powyzej_5h}]]*/ "10";
+  /*]]>*/
+
     let myChart = document.getElementById('myChart').getContext('2d');
 
     // Global Options
@@ -57,16 +65,14 @@
     let massPopChart = new Chart(myChart, {
       type:'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        labels:['Poniżej 1 godziny', 'pomiędzy 1 a 2 godzinami', 'pomiędzy 2 a 5 godzinami', 'powyżej 5 godzin'],
         datasets:[{
-          label:'Population',
+          label:'Czas grania',
           data:[
-            617594,
-            181045,
-            153060,
-            106519,
-            105162,
-            95072
+            under_1h,
+            between_2h,
+            between_5h,
+            over_2h
           ],
           //backgroundColor:'green',
           backgroundColor:[
@@ -87,7 +93,7 @@
       options:{
         title:{
           display:true,
-          text:'Largest Cities In Massachusetts',
+          text:'Rozkład liczby osób poświęcających określony czas na gry w ciągu dnia.',
           fontSize:25
         },
         legend:{

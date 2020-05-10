@@ -21,11 +21,35 @@ public class Stats_Api {
 
     @RequestMapping("/stats")
     public String show_stats(Model model) {
-        model.addAttribute("female", "10");
-        model.addAttribute("male", "20");
-        logger.info("wynik z serwisu: " + service.findNumberOfRespondents());
-        logger.info("liczba wydajacych pieniazki graczy: " + service.findNumberOfSpendingPlayers());
-        logger.info("liczba wydajacych pieniazki graczy ale z repo: " + service.findNumberOfSpendingPlayersFormMoneyRepo());
+
+        int male = service.findNumberOfMaleRespondents();
+        int female = service.findNumberOfFemaleRespondents();
+
+        int [] play_time = service.findNumbersOfPlayTime();
+
+        int gamers = service.findNumberOfGamers();
+        int nonGamers = service.findNumberOfNonGamers();
+
+        int spending = service.findNumberOfSpendingPlayers();
+        int nonSpending = service.findNumberOfNonSpendingPlayers();
+
+        model.addAttribute("Kobiety", female);
+        model.addAttribute("Mezczyzni", male);
+
+        model.addAttribute("ponizej_1h", play_time[0]);
+        model.addAttribute("pomiedzy_1_2h", play_time[1]);
+        model.addAttribute("pomiedzy_2_5h", play_time[2]);
+        model.addAttribute("powyzej_5h", play_time[3]);
+
+        model.addAttribute("Gracze", gamers);
+        model.addAttribute("Nie_grajacy", nonGamers);
+
+        model.addAttribute("Wydajacy", spending);
+        model.addAttribute("Nie_wydajacy", nonSpending);
+
+        //logger.info("wynik z serwisu: " + service.findNumberOfRespondents());
+       // logger.info("liczba wydajacych pieniazki graczy: " + service.findNumberOfSpendingPlayers());
+
         return "stats";
     }
 }
