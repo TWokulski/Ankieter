@@ -39,7 +39,7 @@ public class Stats_Api {
 
 
 
-        logger.info("wynik z serwisu: " + play_time[0] + " " + play_time[4]);
+        logger.info("wynik z serwisu: " + play_time[0] + " " + play_time[3]);
 
         model.addAttribute("Kobiety", female);
         model.addAttribute("Mezczyzni", male);
