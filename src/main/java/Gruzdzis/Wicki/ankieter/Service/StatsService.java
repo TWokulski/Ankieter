@@ -94,20 +94,28 @@ public class StatsService {
         int between_2_5h = 0;
         int over_5h = 0;
         List<GameForStatsDTO> gameList = findAllGamers();
+        logger.info("przed forem");
 
         for(int i = 0; i < findNumberOfGamers(); i++ ) {
 
-            if(gameList.get(i).getGaming_time().equals("Ponizej 1h"))
+            if(gameList.get(i).getGaming_time().equals("Ponizej 1h")) {
+                logger.info("wartosc 1");
                 under_1h++;
+            }
 
-            else if(gameList.get(i).getGaming_time().equals("1-2h"))
+            else if(gameList.get(i).getGaming_time().equals("1-2h")) {
+                logger.info("wartosc 2");
                 between_1_2h++;
+            }
 
-            else if(gameList.get(i).getGaming_time().equals("2-5h"))
+            else if(gameList.get(i).getGaming_time().equals("2-5h")) {
+                logger.info("wartosc 3");
                 between_2_5h++;
-
-            else
+            }
+            else {
+                logger.info("wartosc 4");
                 over_5h++;
+            }
         }
 
         logger.info("wartosc " + under_1h);
