@@ -14,6 +14,7 @@ public class Stats_Api {
     StatsService service;
     private final Logger logger = LoggerFactory.getLogger(Stats_Api.class);
 
+
     public Stats_Api(StatsService service) {
         this.service = service;
     }

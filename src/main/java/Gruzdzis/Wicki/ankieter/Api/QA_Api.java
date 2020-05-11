@@ -26,8 +26,8 @@ public class QA_Api {
     private RespondentDTO respondentDTO = new RespondentDTO();
     private GameDTO gameDTO = new GameDTO();
 
-
     private final Logger logger = LoggerFactory.getLogger(QA_Api.class);
+
 
     public QA_Api(RespondentRepository respondentRepository, AddictionRepository addictionRepository, DegreesRepository degreesRepository, FeelingsRepository feelingsRepository, GameRepository gameRepository, MoneyRepository moneyRepository, SocialRepository socialRepository) {
         this.respondentRepository = respondentRepository;
@@ -39,15 +39,18 @@ public class QA_Api {
         this.socialRepository = socialRepository;
     }
 
+
     @GetMapping("/")
     String welcome_web() {
         return "start_page";
     }
 
+
     @GetMapping("/end")
     String end_web() {
         return "end_page";
     }
+
 
     @GetMapping({"/respondent_q"})
     String respondent_Q(Model model) {
@@ -65,14 +68,15 @@ public class QA_Api {
             return "redirect:/game_q";
         else
             return "redirect:/addiction_q";
-
     }
+
 
     @GetMapping("/game_q")
     String game_Q(Model model) {
         model.addAttribute("game", new Game());
         return "game_q";
     }
+
 
     @PostMapping("/add_game")
     String addGame(@ModelAttribute Game game) {
@@ -91,14 +95,15 @@ public class QA_Api {
             return "redirect:/money_q";
         else
             return "redirect:/feelings_q";
-
     }
+
 
     @GetMapping("/money_q")
     String money_Q(Model model) {
         model.addAttribute("money", new Money());
         return "money_q";
     }
+
 
     @PostMapping("/add_money")
     String addMoney(@ModelAttribute Money money) {
@@ -112,11 +117,13 @@ public class QA_Api {
         return "redirect:/feelings_q";
     }
 
+
     @GetMapping("/addiction_q")
     String addiction_Q(Model model) {
         model.addAttribute("addiction", new Addiction());
         return "addiction_q";
     }
+
 
     @PostMapping("/add_addiction")
     String addAddiction(@ModelAttribute Addiction addiction) {
@@ -130,11 +137,13 @@ public class QA_Api {
         return "redirect:/degrees_q";
     }
 
+
     @GetMapping("/degrees_q")
     String degrees_Q(Model model) {
         model.addAttribute("degrees", new Degrees());
         return "degrees_q";
     }
+
 
     @PostMapping("/add_degrees")
     String addDegrees(@ModelAttribute Degrees degrees) {
@@ -148,11 +157,13 @@ public class QA_Api {
         return "redirect:/social_q";
     }
 
+
     @GetMapping("/feelings_q")
     String feelings_Q(Model model) {
         model.addAttribute("feelings", new Feelings());
         return "feelings_q";
     }
+
 
     @PostMapping("/add_feelings")
     String addFeelings(@ModelAttribute Feelings feelings) {
@@ -166,11 +177,13 @@ public class QA_Api {
         return "redirect:/addiction_q";
     }
 
+
     @GetMapping("/social_q")
     String social_Q(Model model) {
         model.addAttribute("social_life", new Social_life());
         return "social_q";
     }
+
 
     @PostMapping("/add_social")
     String addSocial(@ModelAttribute Social_life social_life) {
@@ -183,6 +196,5 @@ public class QA_Api {
 
         return "redirect:/end";
     }
-
 
 }
